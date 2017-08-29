@@ -10,5 +10,5 @@ import Foundation
 
 class UtilParameters{
     
-    static let UrlAcessoRest:String = "http://192.138.1.5:8080/Petshow-REST/rest/"
+    static let UrlAcessoRest:String = "http://192.168.1.5:8080/Petshow-REST/rest/"
 }

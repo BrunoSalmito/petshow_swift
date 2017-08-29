@@ -25,7 +25,7 @@ class ViewController: UIViewController,LoginButtonDelegate{
             FacebookUtil(viewController: self).loadProfileFacebook()
           
         }else{
-       
+              self.performSegue(withIdentifier: "segueMainToHome", sender:self)
         }
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.center = view.center

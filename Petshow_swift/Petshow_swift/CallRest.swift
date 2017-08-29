@@ -71,24 +71,7 @@ class CallRest{
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
-////            if let response = response {
-////                print(response)
-////            }
-////            
-////            if let data = data {
-////                print(data)
-////                do {
-////                    let json = try JSONSerialization.jsonObject(with: data, options:  .mutableContainers)
-////                    print(json)
-////                    let appDetail = Usuario()
-////                    appDetail.setValuesForKeys(json as! [String: AnyObject])
-////                    
-////                } catch {
-////                    print(error)
-////                }
-////                
-////            }
-//            
+     
             if response != nil {
                 //print(response)
                 //callBack.responseWithReturn()
