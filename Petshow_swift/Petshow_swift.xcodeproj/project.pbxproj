@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F6E8CCF1F50C0DB008A9B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E8CCE1F50C0DB008A9B5F /* Assets.xcassets */; };
 		2F6E8CD21F50C0DB008A9B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E8CD01F50C0DB008A9B5F /* LaunchScreen.storyboard */; };
-		2F6E8CDB1F50C2E2008A9B5F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8CDA1F50C2E2008A9B5F /* File.swift */; };
 		2F6E8CE71F50C361008A9B5F /* UtilParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8CE21F50C361008A9B5F /* UtilParameters.swift */; };
 		2F6E8CE81F50C361008A9B5F /* FacebookUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8CE31F50C361008A9B5F /* FacebookUtil.swift */; };
 		2F6E8CE91F50C361008A9B5F /* UIColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8CE41F50C361008A9B5F /* UIColorUtil.swift */; };
@@ -35,6 +34,12 @@
 		2F6E8D101F548062008A9B5F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E8D0F1F548062008A9B5F /* SwiftyJSON.framework */; };
 		2F6E8D121F54814E008A9B5F /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E8D111F54814E008A9B5F /* FacebookCore.framework */; };
 		2F6E8D141F548157008A9B5F /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E8D131F548157008A9B5F /* FacebookLogin.framework */; };
+		2F6E8D1C1F56099A008A9B5F /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8D1B1F56099A008A9B5F /* MenuBar.swift */; };
+		2F6E8D1E1F560A15008A9B5F /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8D1D1F560A15008A9B5F /* Animal.swift */; };
+		2F6E8D201F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8D1F1F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift */; };
+		2F6E8D221F560D43008A9B5F /* EnumTipoAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8D211F560D43008A9B5F /* EnumTipoAnimal.swift */; };
+		2F820EB41F59BC93004EEC63 /* AnimalListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */; };
+		2F820EB71F59BEBE004EEC63 /* CellAnimalLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */; };
 		C7D345A64FDB94AA45C87C65 /* Pods_Petshow_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB16C9AE6972C0EDEC89C3E /* Pods_Petshow_swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +50,6 @@
 		2F6E8CCE1F50C0DB008A9B5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F6E8CD11F50C0DB008A9B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F6E8CD31F50C0DB008A9B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F6E8CDA1F50C2E2008A9B5F /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		2F6E8CE21F50C361008A9B5F /* UtilParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilParameters.swift; sourceTree = "<group>"; };
 		2F6E8CE31F50C361008A9B5F /* FacebookUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUtil.swift; sourceTree = "<group>"; };
 		2F6E8CE41F50C361008A9B5F /* UIColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtil.swift; sourceTree = "<group>"; };
@@ -71,6 +75,12 @@
 		2F6E8D0F1F548062008A9B5F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Petshow-bjjpfosofqwpqzdzzxpsuirgwlih/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		2F6E8D111F54814E008A9B5F /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookCore.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Petshow-bjjpfosofqwpqzdzzxpsuirgwlih/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework"; sourceTree = "<group>"; };
 		2F6E8D131F548157008A9B5F /* FacebookLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookLogin.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Petshow-bjjpfosofqwpqzdzzxpsuirgwlih/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework"; sourceTree = "<group>"; };
+		2F6E8D1B1F56099A008A9B5F /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		2F6E8D1D1F560A15008A9B5F /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		2F6E8D1F1F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumFrequenciaVermifugacao.swift; sourceTree = "<group>"; };
+		2F6E8D211F560D43008A9B5F /* EnumTipoAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTipoAnimal.swift; sourceTree = "<group>"; };
+		2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalListaController.swift; sourceTree = "<group>"; };
+		2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnimalLista.swift; sourceTree = "<group>"; };
 		CB1AE71A82C3BD02FFE0DFE5 /* Pods-Petshow_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petshow_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Petshow_swift/Pods-Petshow_swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +123,8 @@
 		2F6E8CC61F50C0DB008A9B5F /* Petshow_swift */ = {
 			isa = PBXGroup;
 			children = (
+				2F820EB81F59C6FA004EEC63 /* Controller */,
+				2F820EB51F59BEA3004EEC63 /* view.cell */,
 				2F6E8CE11F50C343008A9B5F /* util.rest */,
 				2F6E8CE01F50C33E008A9B5F /* model */,
 				2F6E8CDF1F50C338008A9B5F /* enum */,
@@ -120,11 +132,7 @@
 				2F6E8CD91F50C2C7008A9B5F /* view */,
 				2F6E8CFC1F50C3AC008A9B5F /* Main.storyboard */,
 				2F6E8CCE1F50C0DB008A9B5F /* Assets.xcassets */,
-				2F6E8CFE1F50C3F2008A9B5F /* ViewController.swift */,
 				2F6E8CFF1F50C3F2008A9B5F /* AppDelegate.swift */,
-				2F6E8D001F50C3F2008A9B5F /* HomeController.swift */,
-				2F6E8D011F50C3F2008A9B5F /* CustomTabBarController.swift */,
-				2F6E8D021F50C3F2008A9B5F /* MenuController.swift */,
 				2F6E8CD01F50C0DB008A9B5F /* LaunchScreen.storyboard */,
 				2F6E8CD31F50C0DB008A9B5F /* Info.plist */,
 			);
@@ -134,7 +142,7 @@
 		2F6E8CD91F50C2C7008A9B5F /* view */ = {
 			isa = PBXGroup;
 			children = (
-				2F6E8CDA1F50C2E2008A9B5F /* File.swift */,
+				2F6E8D1B1F56099A008A9B5F /* MenuBar.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -157,6 +165,8 @@
 				2F6E8CEC1F50C371008A9B5F /* EnumTipoUser.swift */,
 				2F6E8CED1F50C371008A9B5F /* EnumFlTpEstabelecimento.swift */,
 				2F6E8CEE1F50C371008A9B5F /* EnumErrosSistema.swift */,
+				2F6E8D1F1F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift */,
+				2F6E8D211F560D43008A9B5F /* EnumTipoAnimal.swift */,
 			);
 			name = enum;
 			sourceTree = "<group>";
@@ -167,6 +177,7 @@
 				2F6E8CF21F50C37B008A9B5F /* Usuario.swift */,
 				2F6E8CF31F50C37B008A9B5F /* Entidade.swift */,
 				2F6E8CF41F50C37B008A9B5F /* MapErrorRetornoRest.swift */,
+				2F6E8D1D1F560A15008A9B5F /* Animal.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -192,6 +203,26 @@
 				1CB16C9AE6972C0EDEC89C3E /* Pods_Petshow_swift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F820EB51F59BEA3004EEC63 /* view.cell */ = {
+			isa = PBXGroup;
+			children = (
+				2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */,
+			);
+			name = view.cell;
+			sourceTree = "<group>";
+		};
+		2F820EB81F59C6FA004EEC63 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F6E8D021F50C3F2008A9B5F /* MenuController.swift */,
+				2F6E8D011F50C3F2008A9B5F /* CustomTabBarController.swift */,
+				2F6E8D001F50C3F2008A9B5F /* HomeController.swift */,
+				2F6E8CFE1F50C3F2008A9B5F /* ViewController.swift */,
+				2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		64D4C55E06EA07DE7E992172 /* Pods */ = {
@@ -332,19 +363,24 @@
 				2F6E8CE81F50C361008A9B5F /* FacebookUtil.swift in Sources */,
 				2F6E8D071F50C3F2008A9B5F /* MenuController.swift in Sources */,
 				2F6E8CFB1F50C389008A9B5F /* CallRest.swift in Sources */,
+				2F6E8D1C1F56099A008A9B5F /* MenuBar.swift in Sources */,
 				2F6E8CEA1F50C361008A9B5F /* ParametrosUtil.swift in Sources */,
 				2F6E8CEB1F50C361008A9B5F /* ImageUtil.swift in Sources */,
 				2F6E8CFA1F50C389008A9B5F /* CallBackRest.swift in Sources */,
+				2F820EB41F59BC93004EEC63 /* AnimalListaController.swift in Sources */,
 				2F6E8D061F50C3F2008A9B5F /* CustomTabBarController.swift in Sources */,
 				2F6E8D051F50C3F2008A9B5F /* HomeController.swift in Sources */,
 				2F6E8D041F50C3F2008A9B5F /* AppDelegate.swift in Sources */,
 				2F6E8CE71F50C361008A9B5F /* UtilParameters.swift in Sources */,
-				2F6E8CDB1F50C2E2008A9B5F /* File.swift in Sources */,
+				2F6E8D201F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift in Sources */,
+				2F6E8D1E1F560A15008A9B5F /* Animal.swift in Sources */,
 				2F6E8CF51F50C37B008A9B5F /* Usuario.swift in Sources */,
 				2F6E8CF01F50C371008A9B5F /* EnumFlTpEstabelecimento.swift in Sources */,
 				2F6E8CEF1F50C371008A9B5F /* EnumTipoUser.swift in Sources */,
+				2F6E8D221F560D43008A9B5F /* EnumTipoAnimal.swift in Sources */,
 				2F6E8CE91F50C361008A9B5F /* UIColorUtil.swift in Sources */,
 				2F6E8CF71F50C37B008A9B5F /* MapErrorRetornoRest.swift in Sources */,
+				2F820EB71F59BEBE004EEC63 /* CellAnimalLista.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +536,7 @@
 				2F6E8CD81F50C0DB008A9B5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
