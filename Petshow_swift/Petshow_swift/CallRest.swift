@@ -47,8 +47,7 @@ class CallRest{
                     if  erroMap != nil{
                         callBackError(erroMap!)
                     }else{
-                        let entidadeRetorno = Usuario()//retirar
-                        entidadeRetorno.setValuesForKeys(json as! [String: AnyObject])//retirar
+                       
                         callBack(json as! [String: AnyObject])
                     }
                     
@@ -90,8 +89,7 @@ class CallRest{
                     if  erroMap != nil{
                         callBackError(erroMap!)
                     }else{
-                        let entidadeRetorno = Usuario()//retirar
-                        entidadeRetorno.setValuesForKeys(json as! [String: AnyObject])//retirar
+                       
                         callBack(json as! [String: AnyObject])
                     }
                     
@@ -103,16 +101,61 @@ class CallRest{
             }.resume()
     }
     
+    
+    
+    static func requestGetList(url:String,callBack: @escaping (_ json:[[String:AnyObject]])-> Void,callBackError: @escaping (_ mapError:MapErrorRetornoRest)-> Void) {
+        
+        guard let url = URL(string: UtilParameters.UrlAcessoRest+url) else { return }
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            
+            if response != nil {
+                //print(response)
+                //callBack.responseWithReturn()
+                
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    
+                    
+                    let erroMap = CallRest.isMapError(json: json)
+                    
+                    if  erroMap != nil{
+                        callBackError(erroMap!)
+                    }else{
+                        let list = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [[String:AnyObject]]
+
+                        callBack(list!)
+                        
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+    }
+
+    
     static func isMapError(json:Any) ->MapErrorRetornoRest?{
         
         
-        let jsondata = json as! [String: Any]
-        let rootCause = jsondata["rootCause"]
         var erroMap:MapErrorRetornoRest!
-        if  rootCause != nil{
-            erroMap = MapErrorRetornoRest()
-            erroMap.setValuesForKeys(json as! [String: AnyObject])
+        let jsondata = json as? [String: Any]
+        if jsondata != nil {
             
+            let rootCause = jsondata?["rootCause"]
+            
+            if  rootCause != nil{
+                erroMap = MapErrorRetornoRest()
+                erroMap.setValuesForKeys(json as! [String: AnyObject])
+                
+            }
         }
         return erroMap
         
