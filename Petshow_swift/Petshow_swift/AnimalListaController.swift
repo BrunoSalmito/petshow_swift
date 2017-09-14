@@ -13,7 +13,11 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
     
     let cellIdentifier = "CellAnimalLista"
     var animais = [Animal]()
+    var adocao = [Adocao]()
+    var perdidos = [Perdido]()
     var tableViewAux:UITableView?
+    
+    var animalSelected:Animal?
     
     override func viewDidLoad() {
         
@@ -47,28 +51,69 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellAnimalLista  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
-        // Fetch Fruit
-        let animal = animais[indexPath.row]
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        cell.imageAnimal.layer.cornerRadius=35.0
+        cell.imageAnimal.clipsToBounds = true
+        
+        
         
         // Configure Cell
-        
-        cell.lblNome.text = animal.nome as! String
-        cell.lblRaca.text = animal.raca as! String
-        if (animal.fotoPerfil != nil) {
-            cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: animal.fotoPerfil!)
-        }else{
+        if(animais.count > 0 ){
+            let animal = animais[indexPath.row]
+            cell.lblNome.text = animal.nome as! String
+            cell.lblRaca.text = animal.raca as! String
+            if (animal.fotoPerfil != nil) {
+                cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: animal.fotoPerfil!)
+            }else{
+                
+            }
+        }
+        if(adocao.count > 0){
+            let adocao = self.adocao[indexPath.row]
             
+            if(adocao.dataAdocao != nil){
+                cell.lblNome.text = "Adotado"
+            }else{
+                cell.lblNome.text = "Aguardando adoção"
+            }
+          
+            cell.lblRaca.text = adocao.raca! as String
+            if ((adocao.fotos?.count)! > 0 ) {
+                cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: adocao.fotos![0])
+            }else{
+                
+            }
+        }
+        if(perdidos.count > 0){
+            let perdido = perdidos[indexPath.row]
+            
+            if(perdido.flAcontecimento == "A"){
+                cell.lblNome.text = "Encontrado"
+            }else{
+                cell.lblNome.text = "Perdido"
+            }
+            
+            cell.lblRaca.text = perdido.raca as! String
+            if ((perdido.fotos?.count)! > 0 ) {
+                cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: perdido.fotos![0])
+            }else{
+                
+            }
         }
         
+
+    
         return cell
     }
-    
+
     //click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!)!
-      //  print(currentCell.textLabel!.text!)
-        
+       
+         self.animalSelected = animais[(indexPath?.row)!]
+         self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+       
     }
 
     func preencherLista(json:[[String:AnyObject]]) -> Void{
@@ -88,5 +133,14 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
         print("erro chamada")
         
     }
+    
 
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueByGridAnimalList" {
+            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAnimalController
+            controller?.animal = animalSelected
+        }
+      
+    }
 }

@@ -25,7 +25,7 @@ class CustomTabBarController: UITabBarController {
         
         itensTab[2].title = "Mensagens"
         itensTab[2].image = UIImage.init(named: "ic_message_hdpi.png")
-        
+ 
         itensTab[3].title = "Alerta"
         itensTab[3].image = UIImage.init(named: "ic_alert_circle_hdpi.png")
         

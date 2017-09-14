@@ -66,13 +66,14 @@ class Animal:Entidade{
     override func toJSON() -> Dictionary<String, AnyObject> {
         
         return[
-            "fotoPerfil":(self.id  as AnyObject),
-            "raca":(self.id  as AnyObject),
-            "nome":(self.id  as AnyObject),
-            "dataNascimento":(self.id  as AnyObject),
-            "flSexo":(self.id  as AnyObject),
-            "flAdocao":(self.id  as AnyObject),
-            "temReforco":(self.id  as AnyObject),
+             "id":(self.id  as AnyObject),
+            "fotoPerfil":(self.fotoPerfil  as AnyObject),
+            "raca":(self.raca  as AnyObject),
+            "nome":(self.nome  as AnyObject),
+            "dataNascimento":(self.dataNascimento  as AnyObject),
+            "flSexo":(self.flSexo  as AnyObject),
+            "flAdocao":(self.flAdocao  as AnyObject),
+            "temReforco":(self.temReforco  as AnyObject),
             "frequenciaVermifugacao":self.frequenciaVermifugacao!.rawValue as AnyObject,
             "tipo":self.tipo!.rawValue as AnyObject
         ]

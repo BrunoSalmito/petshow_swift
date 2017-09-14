@@ -19,13 +19,16 @@ class ViewController: UIViewController,LoginButtonDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        print("iniciando")
-       
-        if AccessToken.current != nil{
-            FacebookUtil(viewController: self).loadProfileFacebook()
+    if AccessToken.current == nil{
+          
           
         }else{
-              self.performSegue(withIdentifier: "segueMainToHome", sender:self)
+            
+            DispatchQueue.main.async() {
+                [unowned self] in
+                FacebookUtil(viewController: self).loadProfileFacebook()
+               
+            }
         }
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.center = view.center

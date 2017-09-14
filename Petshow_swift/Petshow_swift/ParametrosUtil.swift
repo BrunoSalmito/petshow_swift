@@ -13,6 +13,11 @@ class ParametrosUtil {
     class Color {
         static let verdeFundoPet:String = "61c0bd"
     }
+    
+    class Image {
+        static let imageDefaultAnimal:String = "iVBORw0KGgoAAAANSUhEUgAAAEYAAABBCAYAAABsK9I8AAAAAXNSR0IArs4c6QA"
+    }
+    
 //    class User {
 //        static var usuarioLogado:Usuario = Usuario()
 //    }

@@ -17,4 +17,5 @@ class CellAnimalLista : UITableViewCell
     
     @IBOutlet weak var lblRaca: UILabel!
     
+    
 }
