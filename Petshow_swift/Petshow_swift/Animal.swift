@@ -14,7 +14,7 @@ class Animal:Entidade{
     var   tipo:EnumTipoAnimal?
     var   raca:NSString?
     var   nome:NSString?
-    var   dataNascimento:NSDate?
+    var   dataNascimento:Date?
     var   flSexo:NSString?
     var   flAdocao:Bool?
     var   temReforco:Bool?
@@ -22,42 +22,32 @@ class Animal:Entidade{
     
 
     override func setValue(_ value: Any?, forKey key: String) {
-        if key=="flAdocao" || key=="temReforco" {
+        
             
-            if key=="flAdocao" {
+            if key == "flAdocao" {
                 self.flAdocao = value as? Bool
             }
-            
-            if key=="temReforco"{
-                self.temReforco=value as? Bool
-            }
-            
-        }else if key=="tipo" || key=="frequenciaVermifugacao"{
-            
-            if key=="tipo"{
-                for f in iterateEnum(EnumTipoAnimal) {
-                    
-                    if String(describing: f.self)==value as? String{
-                        
-                        tipo=f;
-                    }
-                }
-            }else if key=="frequenciaVermifugacao" {
-                for f in iterateEnum(EnumFrequenciaVermifugacao) {
-                    
-                    if String(describing: f.self)==value as? String{
-                        
-                        frequenciaVermifugacao=f;
-                    }
-                }
+            else  if key == "temReforco"{
                 
+                self.temReforco=value as? Bool
+                
+            }else if key == "tipo"{
+                
+                self.tipo = EnumUtil.getInListEnum(EnumTipoAnimal.self, value)
+                
+            }else if key == "frequenciaVermifugacao" {
+                
+                self.frequenciaVermifugacao = EnumUtil.getInListEnum(EnumFrequenciaVermifugacao.self, value)
+                
+            }else if key == "dataNascimento" {
+                
+                self.dataNascimento = DateUtil.formatResponseJson(dateString: value )
+                
+            }else if key=="acessos"{
+                
+            }else{
+                 super.setValue(value, forKey: key)
             }
-        }else if key=="acessos"{
-            
-        }else{
-            
-            super.setValue(value, forKey: key)
-        }
         
         
         
@@ -65,16 +55,18 @@ class Animal:Entidade{
     
     override func toJSON() -> Dictionary<String, AnyObject> {
         
+        
+        
         return[
              "id":(self.id  as AnyObject),
             "fotoPerfil":(self.fotoPerfil  as AnyObject),
             "raca":(self.raca  as AnyObject),
             "nome":(self.nome  as AnyObject),
-            "dataNascimento":(self.dataNascimento  as AnyObject),
+            "dataNascimento":(DateUtil.dateFormatToJson(date:self.dataNascimento!) as AnyObject),
             "flSexo":(self.flSexo  as AnyObject),
             "flAdocao":(self.flAdocao  as AnyObject),
             "temReforco":(self.temReforco  as AnyObject),
-            "frequenciaVermifugacao":self.frequenciaVermifugacao!.rawValue as AnyObject,
+            "frequenciaVermifugacao": frequenciaVermifugacao?.rawValue  as AnyObject,
             "tipo":self.tipo!.rawValue as AnyObject
         ]
     }

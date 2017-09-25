@@ -21,7 +21,6 @@ class CallRest{
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options:[]) else { return }
         request.httpBody=httpBody
         
-        
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
             
@@ -121,7 +120,6 @@ class CallRest{
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
                     
-                    
                     let erroMap = CallRest.isMapError(json: json)
                     
                     if  erroMap != nil{
@@ -141,6 +139,102 @@ class CallRest{
             }.resume()
     }
 
+    static func requestDeleteEntity(url:String,entidade:Entidade,callBack: @escaping (_ json:[String: AnyObject])-> Void,callBackError: @escaping (_ mapError:MapErrorRetornoRest)-> Void) {
+        
+        let parameters = entidade.toJSON()
+        
+        guard let url = URL(string: UtilParameters.UrlAcessoRest+url) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options:[]) else { return }
+        request.httpBody=httpBody
+        
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            
+            if response != nil {
+                //print(response)
+                //callBack.responseWithReturn()
+                
+            }
+            
+            if let data = data {
+                do {
+                    
+                    
+                    
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    
+                    
+                    let erroMap = CallRest.isMapError(json: json)
+                    
+                    
+                    if  erroMap != nil{
+                        callBackError(erroMap!)
+                    }else{
+                        
+                        callBack(json as! [String: AnyObject])
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+        
+        
+        
+    }
+    static func requestDeleteEntity(url:String,callBack: @escaping (_ json:[String: AnyObject])-> Void,callBackError: @escaping (_ mapError:MapErrorRetornoRest)-> Void) {
+        
+        guard let url = URL(string: UtilParameters.UrlAcessoRest+url) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            if response != nil {
+                //print(response)
+                //callBack.responseWithReturn()
+                
+            }
+            if data?.count == 0 {
+                callBack([String: AnyObject]())
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    
+                    
+                    let erroMap = CallRest.isMapError(json: json)
+                    
+                    
+                    if  erroMap != nil{
+                        callBackError(erroMap!)
+                    }else{
+                        
+                        callBack(json as! [String: AnyObject])
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+    }
+
+
+    
+    
+    
     
     static func isMapError(json:Any) ->MapErrorRetornoRest?{
         

@@ -18,7 +18,7 @@ class MapErrorRetornoRest:NSObject{
     
     override func setValue(_ value: Any?, forKey key: String) {
         if key=="type" {
-            
+            self.type = EnumUtil.getInListEnum(EnumErrosSistema.self ,  value )
             
             
         }else{

@@ -28,7 +28,7 @@ class Racas:Entidade{
         
         
         if key=="tipoAnimal"{
-            for f in iterateEnum(EnumTipoAnimal) {
+            for f in EnumUtil.iterateEnum(EnumTipoAnimal) {
                 
                 if String(describing: f.self)==value as? String{
                     

@@ -15,6 +15,7 @@ class PickerViewRaca: UIPickerView,UIPickerViewDataSource, UIPickerViewDelegate 
     var controller:UIViewController?
     var rowSelected = -1
     var racas = [Racas()]
+    var preSelectedRaca:String!
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -30,19 +31,37 @@ class PickerViewRaca: UIPickerView,UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        rowSelected = row-1
+        rowSelected = row-1 // salvar com um a menos para ser igual o array pois no componente a primeira linha é vazia e o no array o primeiro ja tem valor
         textField?.text = racas[rowSelected].descricao as! String
         
 
     }
     
+    func getSelecteRaca() -> String{
+        
+       return racas[rowSelected].descricao as! String
+    }
     
-    func prepare(textField:UITextField, controller:UIViewController) -> PickerViewRaca{
+    
+    func prepare(textField:UITextField, controller:UIViewController,raca:String!) -> PickerViewRaca{
         self.delegate = self
         self.dataSource = self
         self.controller = controller
         self.textField = textField
         textField.inputView = self
+        self.preSelectedRaca = raca
+        
+        
+//        if(racas != nil){
+//            
+//            for item in racas{
+//                if(item.descricao?.description == raca){
+//                    self.selectRow((index as? Int)! + 1 , inComponent: 0, animated: true)
+//                    break
+//                }
+//            }
+// 
+//        }
         
         
         let toolBar = UIToolbar()
@@ -66,7 +85,7 @@ class PickerViewRaca: UIPickerView,UIPickerViewDataSource, UIPickerViewDelegate 
     func donePicker (sender:UIBarButtonItem)
     {
         controller?.view.endEditing(true)
-}
+    }
 
 
 }

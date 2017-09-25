@@ -8,56 +8,48 @@
 
 import UIKit
 
-class VacinaListaController:UIViewController, UITableViewDataSource, UITableViewDelegate {
-     var animal:Animal?
+class VacinaListaController:UITableViewController {
+    var animal:Animal?
     var vacinas = [Vacina]()
     var vacinaSelected:Vacina?
     var tableViewAux:UITableView?
+    var cellIdentifier:String = "cellVacinaController"
+    
+    var indicadorProgress:ActivityIndicadorViewPet =  ActivityIndicadorViewPet()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
-        CallRest.requestGetList(url: "animal/consulta/usuario/"+(FacebookUtil.usuarioLogado?.id?.stringValue )! ,callBack: self.preencherLista, callBackError: self.erroLista)
-        
+        callRestListVacina()
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+   
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = vacinas.count
         tableViewAux = tableView
         return numberOfRows
     }
-    //    set as linhas
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellAnimalLista  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellVacinaLista
+        
+        let vacina = vacinas[indexPath.row]
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        cell.imageAnimal.layer.cornerRadius=35.0
-        cell.imageAnimal.clipsToBounds = true
+        cell?.lblDataAplicacao.text = vacina.data?.description
+        cell?.lblNomeVacina.text = vacina.tpVacina?.rawValue
         
-        
-                
-        
-        return cell
+        return cell!
     }
     
-    //click
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!)!
         
@@ -65,34 +57,41 @@ class VacinaListaController:UIViewController, UITableViewDataSource, UITableView
         self.performSegue(withIdentifier: "segueEdtVacina", sender:self)
         
     }
-    
-    func preencherLista(json:[[String:AnyObject]]) -> Void{
-        for item in json{
-            let novoItem = Vacina()
-            novoItem.setValuesForKeys(item)
-            vacinas.append(novoItem)
-        }
         
+    func preencherLista(json:[[String:AnyObject]]) -> Void{
+        
+        vacinas = JsonUtil.listByJson(Vacina.self,json:json)
+
         DispatchQueue.main.sync {
             self.tableViewAux?.reloadData()
+            self.indicadorProgress.close()
         }
     }
     
-    func erroLista(mapErro:MapErrorRetornoRest){
-        print("erro chamada")
-        print("erro chamada")
+    func error(mapErro:MapErrorRetornoRest){
+        ComponentsUtil.backErrorRest(mapErro:mapErro,controller:self,progress:self.indicadorProgress)
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        callRestListVacina()
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueEdtVacina" {
-            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAnimalController
+            let controller =  (segue.destination as? EdtVacinaController)
             controller?.animal = animal
-            controller?.vacina= vacinaSelected
+            controller?.vacina = vacinaSelected
+            vacinaSelected = CastingUtil.returnNil(Vacina.self)
         }
         
     }
-
+    func callRestListVacina(){
+        self.indicadorProgress.open(self)
+        CallRest.requestGetList(url: "animal/vacina/animal/".appending((animal?.id?.description)!)   ,callBack: self.preencherLista, callBackError: self.error)
+        
+    }
+    
+    
 }

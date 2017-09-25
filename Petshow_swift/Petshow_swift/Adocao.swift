@@ -50,7 +50,7 @@ class Adocao:Entidade{
         }else if key=="fase" || key=="porteAnimal" || key=="tipo"{
             
             if key=="tipo"{
-                for f in iterateEnum(EnumTipoAnimal) {
+                for f in EnumUtil.iterateEnum(EnumTipoAnimal) {
                     
                     if String(describing: f.self)==value as? String{
                         
@@ -58,7 +58,7 @@ class Adocao:Entidade{
                     }
                 }
             }else if key=="porteAnimal" {
-                for f in iterateEnum(EnumPorteAnimal) {
+                for f in EnumUtil.iterateEnum(EnumPorteAnimal) {
                     
                     if String(describing: f.self)==value as? String{
                         
@@ -67,7 +67,7 @@ class Adocao:Entidade{
                 }
                 
             }else if key=="fase" {
-                for f in iterateEnum(EnumFaseVida) {
+                for f in EnumUtil.iterateEnum(EnumFaseVida) {
                     
                     if String(describing: f.self)==value as? String{
                         

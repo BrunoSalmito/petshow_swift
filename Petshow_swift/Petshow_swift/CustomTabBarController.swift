@@ -12,13 +12,16 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
        //self.tabBar.isHidden = true
         
-        self.tabBar.backgroundColor = UIColorUtil.init(hex: ParametrosUtil.Color.verdeFundoPet)
+        self.tabBar.backgroundColor = UIColor.black// UIColorUtil.init(hex: ParametrosUtil.Color.verdeFundoPet)
+        self.tabBar.barTintColor =  UIColorUtil.init(hex: ParametrosUtil.Color.verdeFundoPet)
+        self.tabBar.tintColor = UIColor.black
         var itensTab:[UITabBarItem]  = self.tabBar.items!
         
         //Pendente: descobrir resolucao correta das imagens
         
         itensTab[0].title = "Publicações"
         itensTab[0].image = UIImage.init(named: "ic_burst_mode_hdpi.png")
+     
         
         itensTab[1].title = "Pets"
         itensTab[1].image = UIImage.init(named: "ic_cat_hdpi.png")

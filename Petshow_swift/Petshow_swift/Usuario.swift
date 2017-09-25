@@ -56,7 +56,7 @@ class Usuario:Entidade{
         }else if key=="tipoUser" || key=="flTpEstabelecimento"{
             
             if key=="tipoUser"{
-                for f in iterateEnum(EnumTipoUser) {
+                for f in EnumUtil.iterateEnum(EnumTipoUser) {
                     
                     if String(describing: f.self)==value as? String{
                         
@@ -64,7 +64,7 @@ class Usuario:Entidade{
                     }
                 }
             }else if key=="flTpEstabelecimento" {
-                for f in iterateEnum(EnumFlTpEstabelecimento) {
+                for f in EnumUtil.iterateEnum(EnumFlTpEstabelecimento) {
                     
                     if String(describing: f.self)==value as? String{
                         

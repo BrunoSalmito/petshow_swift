@@ -21,5 +21,11 @@ class ParametrosUtil {
 //    class User {
 //        static var usuarioLogado:Usuario = Usuario()
 //    }
+    class Labels {
+        static let namePickerDone = "OK"
+        static let titleAlertConfirmation = "Validação"
+    }
     
+    
+
 }

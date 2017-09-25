@@ -12,7 +12,7 @@ class Tratamento:Entidade{
     
     var   animal:Animal?
     var   frequencia:EnumFrequenciaTratamento?
-    var   nm_Tratamento:NSString?
+    var   nm_tratamento:NSString?
     var   dataInicio:NSDate?
     var   dataTermino:NSDate?
     var   hrTratamento:NSDate?
@@ -22,7 +22,7 @@ class Tratamento:Entidade{
     
     override func setValue(_ value: Any?, forKey key: String) {
         if key=="frequencia"{
-            for f in iterateEnum(EnumFrequenciaTratamento) {
+            for f in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
                 
                 if String(describing: f.self)==value as? String{
                     
@@ -44,7 +44,7 @@ class Tratamento:Entidade{
             "id":(self.id  as AnyObject),
             "animal":(self.animal  as AnyObject),
             "frequencia":self.frequencia!.rawValue as AnyObject,
-            "nm_Tratamento":(self.nm_Tratamento  as AnyObject),
+            "nm_Tratamento":(self.nm_tratamento  as AnyObject),
             "dataInicio":(self.dataInicio  as AnyObject),
             "dataTermino":(self.dataTermino  as AnyObject),
             "hrTratamento":(self.hrTratamento  as AnyObject),
