@@ -11,11 +11,11 @@ import Foundation
 class Vermifugo:Entidade{
     
     var   animal:Animal?
-    var   dtVermifugoDose1:NSDate?
+    var   dtVermifugoDose1:Date?
     var   reforco:Bool?
-    var   dtVermifugoDoseReforco:NSDate?
-    var   dtVermifugoDose1Ant:NSDate?
-    var   dtVermifugoDoseReforcoAnt:NSDate?
+    var   dtVermifugoDoseReforco:Date?
+    var   dtVermifugoDose1Ant:Date?
+    var   dtVermifugoDoseReforcoAnt:Date?
     var   frequencia:EnumFrequenciaVermifugacao?
     var   isTomou1:Bool?
     var   isTomouReforco:Bool?
@@ -23,31 +23,42 @@ class Vermifugo:Entidade{
     
     
     override func setValue(_ value: Any?, forKey key: String) {
-        if key=="reforco" || key=="tomou1" || key=="tomouReforco"{
-            
-            if(key=="reforco"){
-                self.reforco = value as? Bool
-            }
-            if(key=="tomou1"){
-                self.isTomou1 = value as? Bool
-            }
-            if(key=="tomouReforco"){
-                self.isTomouReforco = value as? Bool
-            }
-            
-            
-        }else if key=="frequencia"{
-            for f in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao) {
+        
+            if(key == "reforco"){
                 
-                if String(describing: f.self)==value as? String{
-                    
-                    frequencia=f;
-                }
+                self.reforco = value as? Bool
+                
+            }else if(key == "tomou1"){
+                
+                self.isTomou1 = value as? Bool
+                
+            }else if(key == "tomouReforco"){
+                
+                self.isTomouReforco = value as? Bool
+                
+            }  else if key == "frequencia"{
+                
+                self.frequencia = EnumUtil.getInListEnum(EnumFrequenciaVermifugacao.self, value)
+                
+            } else if key == "dtVermifugoDose1"{
+                
+                self.dtVermifugoDose1 = DateUtil.formatResponseJson(dateString: value )
+                
+            } else if key == "dtVermifugoDoseReforco"{
+                
+                self.dtVermifugoDoseReforco = DateUtil.formatResponseJson(dateString: value )
+                
+            } else if key == "dtVermifugoDose1Ant"{
+                
+                self.dtVermifugoDose1Ant = DateUtil.formatResponseJson(dateString: value )
+                
+            } else if key == "dtVermifugoDoseReforcoAnt"{
+                
+                self.dtVermifugoDoseReforcoAnt = DateUtil.formatResponseJson(dateString: value )
+                
+            }else{
+                  super.setValue(value, forKey: key)
             }
-        }else{
-            
-            super.setValue(value, forKey: key)
-        }
         
         
         
@@ -55,24 +66,20 @@ class Vermifugo:Entidade{
     
     override func toJSON() -> Dictionary<String, AnyObject> {
         
-        var ttt = (self.dtVermifugoDose1!.description  as AnyObject)
-        var ttt2 = (self.dtVermifugoDose1Ant!.description  as AnyObject)
-        print(ttt)
-        print(ttt2)
-        print(Date().jsonDate)
-        print(NSDate().jsonDate)
+        
+       
         return[
+            
             "id":(self.id  as AnyObject),
-            "animal":(self.animal  as AnyObject),
+            "animal":(self.animal?.toJSON()  as AnyObject),
             "frequencia":self.frequencia!.rawValue as AnyObject,
-            "dtVermifugoDose1":"2021-03-01" as AnyObject//
-            //"dtVermifugoDose1":self.dtVermifugoDose1!.jsonDate as AnyObject//,
-            //"dtVermifugoDoseReforco":(self.dtVermifugoDoseReforco!.jsonDate  as AnyObject),
-            //"dtVermifugoDose1Ant":(self.dtVermifugoDose1Ant!.jsonDate  as AnyObject),
-            //"dtVermifugoDoseReforcoAnt":(self.dtVermifugoDoseReforcoAnt!.jsonDate  as AnyObject),
-            //"isTomou1":(self.isTomou1  as AnyObject),
-            //"reforco":(self.reforco  as AnyObject),
-            //"isTomouReforco":(self.isTomouReforco  as AnyObject)
+            "dtVermifugoDose1":DateUtil.dateFormatToJson(date:self.dtVermifugoDose1) as AnyObject,
+            "dtVermifugoDoseReforco":DateUtil.dateFormatToJson(date:self.dtVermifugoDoseReforco) as AnyObject,
+            "dtVermifugoDose1Ant":DateUtil.dateFormatToJson(date:self.dtVermifugoDose1Ant) as AnyObject,
+            "dtVermifugoDoseReforcoAnt":DateUtil.dateFormatToJson(date:self.dtVermifugoDoseReforcoAnt) as AnyObject,
+            "reforco":(self.reforco?.description  as AnyObject),
+            "tomou1":(self.isTomou1?.description  as AnyObject),
+            "tomouReforco":(self.isTomouReforco?.description as AnyObject),
         
             
         ]
@@ -81,15 +88,4 @@ class Vermifugo:Entidade{
   
     
 }
-extension Date {
-    var jsonDate: String {
-        let ticks = lround(timeIntervalSince1970 * 1000)
-        return "/Date(\(ticks))/"
-    }
-}
-extension NSDate {
-    var jsonDate: String {
-        let ticks = lround(timeIntervalSince1970 * 1000)
-        return "/Date(\(ticks))/"
-    }
-}
+

@@ -64,6 +64,8 @@ enum EnumTipoAnimal:String{
                 return enumAux
             }
         }
+        var imageDefaultNoPhoto:String = "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAAAAABcFtGpAAAM3mlDQ1BJQ0MgUHJv"
+        imageDefaultNoPhoto.append("iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAAAAABcFtGpAAAM3mlDQ1BJQ0MgUHJv")
         return nil
     }
     

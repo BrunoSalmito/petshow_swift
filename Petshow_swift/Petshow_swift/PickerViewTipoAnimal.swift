@@ -15,6 +15,7 @@ class PickerViewTipoAnimal: UIPickerView,UIPickerViewDataSource, UIPickerViewDel
     var controller:UIViewController?
     var rowSelected = -1
     var pickerViewRaca :PickerViewRaca?
+    var enumAnimalSelected:EnumTipoAnimal?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -36,6 +37,7 @@ class PickerViewTipoAnimal: UIPickerView,UIPickerViewDataSource, UIPickerViewDel
         }else{
             textField?.text = "";
         }
+        pickerViewRaca?.setSelected(raca: "", rowSelected: 0)
     }
     
     
@@ -49,84 +51,71 @@ class PickerViewTipoAnimal: UIPickerView,UIPickerViewDataSource, UIPickerViewDel
         
         var countEnum:Int = 0
         if(enumTp != nil ){
-            for f in EnumUtil.iterateEnum(EnumTipoAnimal) {
+            for f in EnumUtil.iterateEnum(EnumTipoAnimal.self) {
                 
                 countEnum += 1
                 
-                if String(describing: f.self)==enumTp.rawValue as? String{
+                if String(describing: f.self)==enumTp.rawValue as String{
                     self.selectRow(countEnum, inComponent: 0, animated: true)
-                    CallRest.requestGetList(url: "animal/racas/"+enumTp.rawValue ,callBack: self.preencherLista, callBackError: self.erroLista)
-                     rowSelected = countEnum-1
+                     DispatchQueue.main.async {
+                        CallRest.requestGetList(url: "animal/racas/"+enumTp.rawValue ,callBack: self.preencherLista, callBackError: self.erro)
+                    }
+                    rowSelected = countEnum-1
+                    enumAnimalSelected = EnumTipoAnimal.getEnum(orderId: rowSelected)
                 }
             }
         }
         
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: ParametrosUtil.Labels.namePickerDone, style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
         
-        let doneButton = UIBarButtonItem(title: "OK", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
-        
-        toolBar.setItems([doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        textField.inputAccessoryView = toolBar
-        //textField.addTarget(self, action: #selector(bloquear), for: UIControlEvents.editingDidBegin)
-        //textField.addTarget(self, action: #selector(desbloquear), for: UIControlEvents.editingDidEnd)
-
-        
+        textField.inputAccessoryView = ComponentsUtil.toolBarPicker(doneButton:doneButton)
+     
         return self
-    }
-    func bloquear (sender: UITextField){
-       sender.isUserInteractionEnabled = false
-    }
-    func desbloquear (sender: UITextField){
-        sender.isUserInteractionEnabled = true
     }
     
     func donePicker (sender:UIBarButtonItem)
     {
         controller?.view.endEditing(true)
         if(pickerViewRaca != nil){
-            CallRest.requestGetList(url: "animal/racas/"+(EnumTipoAnimal.getEnum(orderId: rowSelected)?.rawValue)! ,callBack: self.preencherLista, callBackError: self.erroLista)
-            
+            pickerViewRaca?.textField?.text = ""
+            DispatchQueue.main.async {
+                CallRest.requestGetList(url: "animal/racas/"+(EnumTipoAnimal.getEnum(orderId: self.rowSelected)?.rawValue)! ,callBack: self.preencherLista, callBackError: self.erro)
+            }
             
         }
     }
     
     func preencherLista(json:[[String:AnyObject]]) -> Void{
-        pickerViewRaca?.racas.removeAll()
-        for item in json{
-            let novoItem = Racas()
-            novoItem.setValuesForKeys(item)
-            pickerViewRaca?.racas.append(novoItem)
-            
+       
+        pickerViewRaca?.racas = JsonUtil.listByJson(Racas.self,json:json)
+        DispatchQueue.main.async {
+            self.pickerViewRaca?.reloadAllComponents()
+            self.selectPickRaca()
         }
-        
-        //DispatchQueue.main.sync {
-            pickerViewRaca?.reloadAllComponents()
-            if(pickerViewRaca?.preSelectedRaca != nil){
-                var countLines:Int = 0
-                
-                for raca in (pickerViewRaca?.racas)!{
-                    countLines += 1
-                    if(raca.descricao?.description == pickerViewRaca?.preSelectedRaca){
-                        pickerViewRaca?.selectRow(countLines, inComponent: 0, animated: true)
-                        pickerViewRaca?.rowSelected = countLines-1
-                    }
-                    
-                }
-            }
-            
-       // }
+      
     }
     
-    func erroLista(mapErro:MapErrorRetornoRest){
-        print("erro chamada")
-        print("erro chamada")
+    func erro(mapErro:MapErrorRetornoRest){
+        //ComponentsUtil.backErrorRest(mapErro:mapErro,controller:self,progress:self.indicadorProgress)
         
     }
+    
+    func selectPickRaca(){
+        
+        if(self.pickerViewRaca?.preSelectedRaca != nil){
+            var countLines:Int = 0
+            
+            for raca in (self.pickerViewRaca?.racas)!{
+                countLines += 1
+                if(raca.descricao?.description == self.pickerViewRaca?.preSelectedRaca){
+                    
+                    pickerViewRaca?.setSelected(raca: (raca.descricao?.description)!, rowSelected: countLines-1)
+                }
+                
+            }
+        }
+
+    }
+    
     
 }

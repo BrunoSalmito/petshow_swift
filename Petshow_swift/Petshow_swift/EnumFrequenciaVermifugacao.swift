@@ -25,6 +25,7 @@ enum EnumFrequenciaVermifugacao:String{
                 return enumAux
             }
         }
+        
         return nil
     }
     func getEnum(id:Int)-> EnumFrequenciaVermifugacao? {

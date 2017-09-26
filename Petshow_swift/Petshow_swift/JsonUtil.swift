@@ -9,11 +9,11 @@
 import Foundation
 class JsonUtil{
     
-    class func setfieldsJsonReturn<T:Entidade>(entidade: T, json:[String: AnyObject]) ->T{
+    class func setfieldsJsonReturn<T:Entidade>(entidade: T, json:[String: AnyObject]) {
         
         
         entidade.setValuesForKeys(json)
-        return entidade
+        
     }
     static func listByJson<T:Entidade>(_: T.Type,json:[[String:AnyObject]]) -> [T]{
         var entidades = [T]()
@@ -25,5 +25,18 @@ class JsonUtil{
             
         }
         return entidades
+    }
+    static func entidadeByJsonNew<T:Entidade>(_: T.Type,json:[String:AnyObject]) -> T{
+        let entidade = T()
+        entidade.setValuesForKeys(json)
+        
+        return entidade
+    }
+    
+    static func entidadeByJson<T:Entidade>(_: T.Type,json:[String:AnyObject],entidade:T) -> T{
+        
+        entidade.setValuesForKeys(json)
+        
+        return entidade
     }
 }

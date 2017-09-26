@@ -16,70 +16,66 @@ class TratamentoListaController:UITableViewController{
     
     var cellIdentifier:String = "cellTratamentoController"
     
+     var indicadorProgress:ActivityIndicadorViewPet =  ActivityIndicadorViewPet()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
-        CallRest.requestGetList(url: "animal/tratamento/animal/".appending((animal?.id?.description)!)   ,callBack: self.preencherLista, callBackError: self.erroLista)
-        
+        callRestListaTratamento()
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
+    
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let numberOfRows = tratamentos.count
         tableViewAux = tableView
         return numberOfRows
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellTratamentoLista  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellTratamentoLista
         
         let tratamento = tratamentos[indexPath.row]
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        cell.lblNmTratamento.text = tratamento.nm_tratamento?.description
-        
-        
-        
-        
-        return cell
+        cell?.lblNmTratamento.text = tratamento.nm_tratamento?.description
+
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRow(at: indexPath!)!
-        
         self.tratamentoSelected = tratamentos[(indexPath?.row)!]
         self.performSegue(withIdentifier: "segueEdtTratamento", sender:self)
         
     }
     
-    func preencherLista(json:[[String:AnyObject]]) -> Void{
-        for item in json{
-            let novoItem = Tratamento()
-            novoItem.setValuesForKeys(item)
-            tratamentos.append(novoItem)
-        }
-        
-        DispatchQueue.main.sync {
-            self.tableViewAux?.reloadData()
+    
+    func callRestListaTratamento(){
+        self.indicadorProgress.open(self)
+        DispatchQueue.main.async {
+            CallRest.requestGetList(url: "animal/tratamento/animal/".appending((self.animal?.id?.description)!)   ,callBack: self.preencherLista, callBackError: self.erro)
         }
     }
     
-    func erroLista(mapErro:MapErrorRetornoRest){
-        print("erro chamada")
-        print("erro chamada")
+
+    func preencherLista(json:[[String:AnyObject]]) -> Void{
+ 
+        tratamentos = JsonUtil.listByJson(Tratamento.self,json:json)
+        
+        DispatchQueue.main.sync {
+            self.tableViewAux?.reloadData()
+            self.indicadorProgress.close()
+        }
+    }
+    
+    func erro(mapErro:MapErrorRetornoRest){
+        ComponentsUtil.backErrorRest(mapErro:mapErro,controller:self,progress:self.indicadorProgress)
         
     }
     
@@ -88,8 +84,14 @@ class TratamentoListaController:UITableViewController{
             let controller =  (segue.destination as? EdtTratamentoController)
             controller?.animal = animal
             controller?.tratamento = tratamentoSelected
+            tratamentoSelected = CastingUtil.returnNil(Tratamento.self)
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        callRestListaTratamento()
     }
 
 }

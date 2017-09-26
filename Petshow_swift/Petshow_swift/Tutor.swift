@@ -28,8 +28,8 @@ class Tutor:Entidade{
         
         return[
             "id":(self.id  as AnyObject),
-            "usuario":(self.usuario  as AnyObject),
-            "animal":(self.animal  as AnyObject),
+            "usuario":(self.usuario?.toJSON()  as AnyObject),
+            "animal":(self.animal?.toJSON()  as AnyObject),
             "donoAtual":(self.donoAtual  as AnyObject)
         ]
     }

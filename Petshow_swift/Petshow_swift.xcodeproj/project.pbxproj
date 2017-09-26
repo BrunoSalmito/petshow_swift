@@ -24,6 +24,7 @@
 		2F42CABA1F69D26700163B44 /* MenuEdtAnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42CAB91F69D26700163B44 /* MenuEdtAnimalController.swift */; };
 		2F42CABC1F69D3D100163B44 /* CellMenuEdtAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42CABB1F69D3D100163B44 /* CellMenuEdtAnimal.swift */; };
 		2F42CABE1F69DCA000163B44 /* CellMenuEdAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42CABD1F69DCA000163B44 /* CellMenuEdAnimal.swift */; };
+		2F49D1391F7A027F00995B13 /* PickerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F49D1381F7A027F00995B13 /* PickerImageView.swift */; };
 		2F4B07F81F6A4A9800AEC263 /* EdtAnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B07F71F6A4A9800AEC263 /* EdtAnimalController.swift */; };
 		2F4B07FA1F6AEDBF00AEC263 /* VacinaListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B07F91F6AEDBF00AEC263 /* VacinaListaController.swift */; };
 		2F4B07FE1F6AEED800AEC263 /* TratamentoListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B07FD1F6AEED800AEC263 /* TratamentoListaController.swift */; };
@@ -106,6 +107,7 @@
 		2F42CAB91F69D26700163B44 /* MenuEdtAnimalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEdtAnimalController.swift; sourceTree = "<group>"; };
 		2F42CABB1F69D3D100163B44 /* CellMenuEdtAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMenuEdtAnimal.swift; sourceTree = "<group>"; };
 		2F42CABD1F69DCA000163B44 /* CellMenuEdAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMenuEdAnimal.swift; sourceTree = "<group>"; };
+		2F49D1381F7A027F00995B13 /* PickerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerImageView.swift; sourceTree = "<group>"; };
 		2F4B07F71F6A4A9800AEC263 /* EdtAnimalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdtAnimalController.swift; sourceTree = "<group>"; };
 		2F4B07F91F6AEDBF00AEC263 /* VacinaListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VacinaListaController.swift; sourceTree = "<group>"; };
 		2F4B07FD1F6AEED800AEC263 /* TratamentoListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TratamentoListaController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				2F7585741F744AC30047AEF8 /* PickerFrequenciaVermifugacao.swift */,
 				2F7585781F76250E0047AEF8 /* TableViewVacina.swift */,
 				2F75857A1F7736270047AEF8 /* ActivityIndicadorViewPet.swift */,
+				2F49D1381F7A027F00995B13 /* PickerImageView.swift */,
 			);
 			name = view.components;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				2F6E8CF11F50C371008A9B5F /* EnumErrosSistema.swift in Sources */,
 				2F6E8CE81F50C361008A9B5F /* FacebookUtil.swift in Sources */,
 				2F42CABE1F69DCA000163B44 /* CellMenuEdAnimal.swift in Sources */,
+				2F49D1391F7A027F00995B13 /* PickerImageView.swift in Sources */,
 				2F75856E1F7314AD0047AEF8 /* EnumTeste.swift in Sources */,
 				2F326B5C1F5F64BE00D792B6 /* Perdido.swift in Sources */,
 				2F4B08161F6D044900AEC263 /* PickerViewVacina.swift in Sources */,

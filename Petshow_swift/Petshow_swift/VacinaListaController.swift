@@ -42,8 +42,14 @@ class VacinaListaController:UITableViewController {
         
         let vacina = vacinas[indexPath.row]
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        cell?.lblDataAplicacao.text = vacina.data?.description
         cell?.lblNomeVacina.text = vacina.tpVacina?.rawValue
+        if(vacina.flAplicada!){
+            cell?.lblDataAplicacao.text = "Aplicada em "+DateUtil.formartarDataBrasil(date: vacina.data!)
+            cell?.backgroundColor = UIColor.green
+        }else{
+            cell?.lblDataAplicacao.text = "Previsão de aplicação :"+DateUtil.formartarDataBrasil(date: vacina.data!)
+        }
+       
         
         return cell!
     }
@@ -51,7 +57,7 @@ class VacinaListaController:UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRow(at: indexPath!)!
+       
         
         self.vacinaSelected = vacinas[(indexPath?.row)!]
         self.performSegue(withIdentifier: "segueEdtVacina", sender:self)
@@ -89,7 +95,9 @@ class VacinaListaController:UITableViewController {
     }
     func callRestListVacina(){
         self.indicadorProgress.open(self)
-        CallRest.requestGetList(url: "animal/vacina/animal/".appending((animal?.id?.description)!)   ,callBack: self.preencherLista, callBackError: self.error)
+        DispatchQueue.main.async {
+            CallRest.requestGetList(url: "animal/vacina/animal/".appending((self.animal?.id?.description)!)   ,callBack: self.preencherLista, callBackError: self.error)
+        }
         
     }
     

@@ -11,22 +11,20 @@ import UIKit
 class EdtTratamentoController:UITableViewController{
     var animal:Animal?
     var tratamento:Tratamento?
+    var indicadorProgress:ActivityIndicadorViewPet =  ActivityIndicadorViewPet()
     
     @IBOutlet var txtNome: UITextField!
     @IBOutlet var txtFrequencia: UITextField!
     @IBOutlet var hora: UITextField!
-    
     @IBOutlet var txtDtInicial: UITextField!
-    
     @IBOutlet var navigation: UINavigationItem!
     @IBOutlet var txtDtFinal: UITextField!
-    
     @IBOutlet var cellDelete: UITableViewCell!
     
     var pickerFrequencia:PickerFrequenciaTratamento?
     
     override func viewDidLoad() {
-//        CallRest.requestGetEntity(url: "animal/vermifugo/animal/".appending((animal?.id?.description)!), callBack: self.callBackGetVermifugo, callBackError: self.callBackErrorGetVermifugo)
+
         super.viewDidLoad()
         
         let  frequencia = tratamento == nil ? nil : (tratamento?.frequencia)!
@@ -38,28 +36,75 @@ class EdtTratamentoController:UITableViewController{
         }else{
             tratamento = Tratamento()
             navigation.title = "Novo"
+            txtDtInicial.text  = DateUtil.formartarDataBrasil(date: Date())
+            txtDtFinal.text  = DateUtil.formartarDataBrasil(date: Date())
             
         }
     }
-    func callBackGetVermifugo(json:[String: AnyObject]) -> Void{
+    
+    @IBAction func openDtInicialPicker(_ sender: UITextField) {
+        DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.date, idDatePickerTela: 2)
+    }
+    
+    @IBAction func openDtFinalPicker(_ sender: UITextField) {
+        DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.date, idDatePickerTela: 3)
+    }
+    @IBAction func openDtPickerHR(_ sender: UITextField) {
+        DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.time, idDatePickerTela: 1)
+    }
+    
+    
+    @IBAction func validationSaveTratamento(_ sender: Any) {
+//        if(!ValidationUtil.validationTextFieldData(txt: txtDataAplicacao)){
+//            ComponentsUtil.criationAlertValidation(controller: self, message: "Informe uma data de aplicação!")
+//            return
+//        }
+        saveTratamento()
+    }
+    
+    func saveTratamento(){
+    
+        indicadorProgress.open("Salvando tratamento", controller: self)
+        setEntityScreenFields()
+        DispatchQueue.main.async {
+            CallRest.requestPostEntity(url: "animal/tratamento/salvar", entidade: self.tratamento!, callBack: self.callBackGetTratamento, callBackError: self.error)
+        }
+    }
+    
+   
+    
+    func callBackGetTratamento(json:[String: AnyObject]) -> Void{
        
+        JsonUtil.setfieldsJsonReturn(entidade:self.tratamento!, json:json)
         
+        DispatchQueue.main.async {
+            self.loadFields(tratamento:self.tratamento!)
+            self.indicadorProgress.close()
+        }
         
     }
-    func errorDelete(mapErro:MapErrorRetornoRest){
-        print("erro chamada")
-        print("erro chamada")
-        
-    }
+    func error(mapErro:MapErrorRetornoRest){
+        ComponentsUtil.backErrorRest(mapErro:mapErro,controller:self,progress:self.indicadorProgress)
+   }
+
     func loadFields(tratamento:Tratamento){
-        txtNome.text =  tratamento.nm_tratamento?.description
-        hora.text = DateUtil.formartarNsHora(date: tratamento.hrTratamento!, segundos: false)
-        txtDtInicial.text  = DateUtil.formartarNsDataBrasil(date: tratamento.dataInicio!)
-        txtDtFinal.text  = DateUtil.formartarNsDataBrasil(date: tratamento.dataTermino!)
-        navigation.title = tratamento.nm_tratamento?.description
+         if(tratamento.id != nil && (tratamento.id?.intValue)! > 0){
+            txtNome.text =  tratamento.nm_tratamento?.description
+            hora.text = DateUtil.formartarHora (date:tratamento.hrTratamento!,segundos:false)
+            txtDtInicial.text  = DateUtil.formartarDataBrasil(date: tratamento.dataInicio!)
+            txtDtFinal.text  = DateUtil.formartarDataBrasil(date: tratamento.dataTermino!)
+            navigation.title = tratamento.nm_tratamento?.description
+        }
     }
-    func getEntityScreenFields(){
-        
+    func setEntityScreenFields(){
+        tratamento?.animal = self.animal
+        tratamento?.dataInicio = DateUtil.dataBrasilToDate(date: txtDtInicial.text!)
+        tratamento?.dataTermino =  DateUtil.dataBrasilToDate(date: txtDtFinal.text!)
+        tratamento?.frequencia = pickerFrequencia?.enumSelected
+        tratamento?.nm_tratamento = txtNome.text! as NSString
+        tratamento?.hrTratamento = DateUtil.hourDescToDate(hour:hora.text! ,seconds:false )
+      
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -71,28 +116,25 @@ class EdtTratamentoController:UITableViewController{
         }
     }
     
-    @IBAction func openDtInicialPicker(_ sender: UITextField) {
-        DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.date, idDatePickerTela: 2)
-        
-    }
     
-    @IBAction func openDtFinalPicker(_ sender: UITextField) {
-        DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.date, idDatePickerTela: 3)
-    }
-    @IBAction func openDtPickerHR(_ sender: UITextField) {
-         DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.time, idDatePickerTela: 1)
-    }
     
     func deleteTratamento() {
-//        CallRest.requestDeleteEntity(url: "animdsadsaal/"+(tratamento!.id?.description)!, callBack: self.backDelete, callBackError:self.errorDelete )
+        
+        indicadorProgress.open("Salvando vacina", controller: self)
+        DispatchQueue.main.async {
+            CallRest.requestDeleteEntity(url: "animal/tratamento/"+(self.tratamento!.id?.description)!, callBack: self.backDelete, callBackError:self.error )
+        }
     }
+    
     func backDelete(json:[String:AnyObject]) -> Void{
+        indicadorProgress.close()
         returnListTratamento()
         
     }
+    
     func returnListTratamento(){
-        DispatchQueue.main.sync {
-            self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -105,7 +147,6 @@ class EdtTratamentoController:UITableViewController{
         }else if (sender.tag == 3){
             txtDtFinal.text = DateUtil.formartarDataBrasil(date: sender.date)
         }
-        
         
     }
     

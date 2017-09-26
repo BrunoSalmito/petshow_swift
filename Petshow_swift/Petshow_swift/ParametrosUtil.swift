@@ -16,6 +16,10 @@ class ParametrosUtil {
     
     class Image {
         static let imageDefaultAnimal:String = "iVBORw0KGgoAAAANSUhEUgAAAEYAAABBCAYAAABsK9I8AAAAAXNSR0IArs4c6QA"
+        
+        static var imageDefaultNoPhoto:String = ""
+        
+        
     }
     
 //    class User {
@@ -24,6 +28,9 @@ class ParametrosUtil {
     class Labels {
         static let namePickerDone = "OK"
         static let titleAlertConfirmation = "Validação"
+    }
+    class Message{
+        static let ERROR_INESPERADO = "Ocorreu um erro inesperado no PETMOOBY!Favor sair e entrar novamente!"
     }
     
     

@@ -40,12 +40,12 @@ class EdtVacinaController:UITableViewController{
             txtDataAplicacao.text = DateUtil.formartarDataBrasil(date: Date())
             switchAplicada.setOn(false, animated: false)
         }
-        
+       // navigationController?.navigationBar.barTintColor = UIColorUtil.init(hex: "008500")
         
         ComponentsUtil.configurarTextField(textField: txtTipoVacina)
         ComponentsUtil.configurarTextField(textField: txtDataAplicacao)
         ComponentsUtil.configurarTextField(textField: txtDataPrevisao)
-        
+        self.tableView.backgroundColor = UIColorUtil.init(hex: "DDFFDF")
     }
 
     
@@ -164,7 +164,7 @@ class EdtVacinaController:UITableViewController{
     }
     func backDelete(json:[String:AnyObject]) -> Void{
         indicadorProgress.close()
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {// trocado de sync para async warning
            self.navigationController?.popViewController(animated: true)
         }
         

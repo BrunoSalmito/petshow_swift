@@ -28,21 +28,17 @@ class Vacina:Entidade{
         }else if key == "data"{
             self.data = DateUtil.formatResponseJson(dateString: value )
             
-            
         }else if key == "previsaoProxima" {
             self.previsaoProxima = DateUtil.formatResponseJson(dateString: value )
-        }
-            
-        else{
-            
+        
+        }else{
             super.setValue(value, forKey: key)
+        
         }
         
     }
     
     override func toJSON() -> Dictionary<String, AnyObject> {
-        
-        
         return[
             "id":(self.id  as AnyObject),
             "animal":(self.animal?.toJSON()  as AnyObject),

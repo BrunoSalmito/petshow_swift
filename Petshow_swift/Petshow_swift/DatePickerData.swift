@@ -18,17 +18,13 @@ class DatePickerData:NSObject {
         
         
         let inputView = UIView(frame: CGRect(x: 0, y: 0, width: controller.view.frame.width, height: 200))
-        var datePickerView  : UIDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
         
         datePickerView.datePickerMode = tpData
        
         inputView.addSubview(datePickerView)
         
-        if(idDatePickerTela == nil){
-            datePickerView.tag = 1
-        }else{
-            datePickerView.tag = idDatePickerTela!
-        }
+        setDatePickerTag(datePickerView: datePickerView, idDatePickerTela: idDatePickerTela)
     
         if(tpData == UIDatePickerMode.time){
             datePickerView.locale = NSLocale(localeIdentifier: "da_DK") as Locale
@@ -40,6 +36,23 @@ class DatePickerData:NSObject {
         txt.inputView = inputView
         datePickerView.addTarget(controller, action: #selector(handleDatePicker), for: UIControlEvents.valueChanged)
         
+        setDateFromTextFieldToDate(txt: txt, tpData: tpData, datePickerView: datePickerView)
+       
+        handleDatePicker(sender: datePickerView)
+        
+      
+    }
+    
+    
+    func setDatePickerTag(datePickerView  : UIDatePicker,idDatePickerTela:Int!){
+        if(idDatePickerTela == nil){
+            datePickerView.tag = 1
+        }else{
+            datePickerView.tag = idDatePickerTela!
+        }
+    }
+    
+    func setDateFromTextFieldToDate(txt:UITextField , tpData:UIDatePickerMode ,datePickerView  : UIDatePicker){
         
         if(txt.text?.description != ""){
             if(tpData == UIDatePickerMode.date){
@@ -47,13 +60,10 @@ class DatePickerData:NSObject {
             }else{
                 datePickerView.setDate(DateUtil.hourDescToDate(hour: (txt.text?.description)!, seconds: false), animated: true)
             }
+        }else{
+           txt.text = DateUtil.formartarDataBrasil(date: datePickerView.date)
         }
-        handleDatePicker(sender: datePickerView)
-        
-        //txt.delegate = self
-        //txt.addTarget(self, action: #selector(), for: .touchDown)
     }
-    
     
     //  implementar em quem chama
     func handleDatePicker(sender: UIDatePicker)

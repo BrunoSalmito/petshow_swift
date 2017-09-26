@@ -14,6 +14,7 @@ class PickerFrequenciaTratamento: UIPickerView,UIPickerViewDataSource, UIPickerV
     var textField:UITextField?
     var controller:UIViewController?
     var rowSelected = -1
+    var enumSelected:EnumFrequenciaTratamento?
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -25,17 +26,14 @@ class PickerFrequenciaTratamento: UIPickerView,UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return row == 0 ? "" :EnumFrequenciaTratamento.getEnum(orderId: row-1)?.desc
+        return  EnumFrequenciaTratamento.getEnum(orderId: row)?.desc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        rowSelected = row-1
-        if(rowSelected >= 0){
-            textField?.text = EnumFrequenciaTratamento.getEnum(orderId: rowSelected)?.desc
-        }else{
-            textField?.text = "";
-        }
+        rowSelected = row
+        enumSelected = EnumFrequenciaTratamento.getEnum(orderId: rowSelected)
+        textField?.text = enumSelected?.desc
     }
     
     
@@ -50,21 +48,25 @@ class PickerFrequenciaTratamento: UIPickerView,UIPickerViewDataSource, UIPickerV
         if(enumTp != nil ){
             for f in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
                 
-                countEnum += 1
+               
                 
                 if f.id==enumTp?.id {
                     self.selectRow(countEnum, inComponent: 0, animated: true)
                     textField.text = f.desc
+                    enumSelected = f
                 }
+                 countEnum += 1
             }
+        }else{
+            self.selectRow(0, inComponent: 0, animated: true)
+            textField.text = EnumFrequenciaTratamento.getEnum(orderId: 0)?.desc
+            rowSelected = 0
         }
 
         let doneButton = UIBarButtonItem(title: ParametrosUtil.Labels.namePickerDone, style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
         
         textField.inputAccessoryView = ComponentsUtil.toolBarPicker(doneButton:doneButton)
-        //textField.addTarget(self, action: #selector(bloquear), for: UIControlEvents.editingDidBegin)
-        //textField.addTarget(self, action: #selector(desbloquear), for: UIControlEvents.editingDidEnd)
-        
+       
         
         return self
     }

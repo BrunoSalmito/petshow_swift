@@ -16,4 +16,24 @@ class ValidationUtil {
         }
         return true
     }
+    static func validationTextFieldString(txt:UITextField) -> Bool{
+        if(txt.text == nil || txt.text == ""){
+            return false
+        }
+        return true
+    }
+    
+    static func validationNumber(number:Int?) -> Bool{
+        if(number == nil || number == 0){
+            return false
+        }
+        return true
+    }
+    
+    static func validationNumber(number:NSNumber?) -> Bool{
+        if(number == nil || number == 0){
+            return false
+        }
+        return true
+    }
 }

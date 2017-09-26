@@ -60,8 +60,8 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
         // Configure Cell
         if(animais.count > 0 ){
             let animal = animais[indexPath.row]
-            cell.lblNome.text = animal.nome as! String
-            cell.lblRaca.text = animal.raca as! String
+            cell.lblNome.text = animal.nome?.description
+            cell.lblRaca.text = animal.raca?.description
             if (animal.fotoPerfil != nil) {
                 cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: animal.fotoPerfil!)
             }else{
@@ -93,7 +93,7 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
                 cell.lblNome.text = "Perdido"
             }
             
-            cell.lblRaca.text = perdido.raca as! String
+            cell.lblRaca.text = perdido.raca as? String
             if ((perdido.fotos?.count)! > 0 ) {
                 cell.imageAnimal.image = ImageUtil.nsString64ToImage(stringImage: perdido.fotos![0])
             }else{
@@ -109,10 +109,8 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
     //click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRow(at: indexPath!)!
-       
-         self.animalSelected = animais[(indexPath?.row)!]
-         self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+        self.animalSelected = animais[(indexPath?.row)!]
+        self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
        
     }
 
@@ -142,5 +140,10 @@ class AnimalListaController:UIViewController, UITableViewDataSource, UITableView
             controller?.animal = animalSelected
         }
       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //callRestListVacina()
     }
 }

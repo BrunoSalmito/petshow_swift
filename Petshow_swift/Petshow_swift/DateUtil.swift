@@ -156,6 +156,13 @@ class DateUtil{
         return DateUtil.formartarData(date: date!, formato: "yyyy-MM-dd"   ) as AnyObject
     }
     
+    class func hourFormatToJson(date:Date?) -> AnyObject?{
+        if(date == nil){
+            return nil
+        }
+        return DateUtil.formartarData(date: date!, formato: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"   ) as AnyObject
+    }
+    
     class func formatResponseJson(dateString:Any?) ->Date?{
         if(dateString == nil){
             return nil
@@ -173,7 +180,18 @@ class DateUtil{
             return dateFormatter.date(from: (dateString as! NSString).description )!
             
         }
+       
+                        
         
+        
+    }
+    class func formatResponseHourJson(dateString:Any?) ->Date?{
+        
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm:ss"
+        
+            
+            return dateFormatter.date(from: (dateString as! NSString).description )!
     }
 
 }

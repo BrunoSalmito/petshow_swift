@@ -14,6 +14,7 @@ class PickerFrequenciaVermifugacao: UIPickerView,UIPickerViewDataSource, UIPicke
     var textField:UITextField?
     var controller:UIViewController?
     var rowSelected = -1
+    var enumSelected : EnumFrequenciaVermifugacao?
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -21,21 +22,20 @@ class PickerFrequenciaVermifugacao: UIPickerView,UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return EnumFrequenciaVermifugacao.count+1
+        return EnumFrequenciaVermifugacao.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return row == 0 ? "" :EnumFrequenciaVermifugacao.getEnum(orderId: row-1)?.desc
+        
+        return EnumFrequenciaVermifugacao.getEnum(orderId: row )?.desc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        rowSelected = row-1
-        if(rowSelected >= 0){
-            textField?.text = EnumFrequenciaVermifugacao.getEnum(orderId: rowSelected)?.desc
-        }else{
-            textField?.text = "";
-        }
+        rowSelected = row
+        enumSelected = EnumFrequenciaVermifugacao.getEnum(orderId: rowSelected)
+        textField?.text = enumSelected?.desc
+       
     }
     
     
@@ -49,31 +49,25 @@ class PickerFrequenciaVermifugacao: UIPickerView,UIPickerViewDataSource, UIPicke
         var countEnum:Int = 0
         if(enumTp != nil ){
             for f in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao) {
-                
-                countEnum += 1
-                
-                if f.id==enumTp?.id {
+                 if f.id==enumTp?.id {
                     self.selectRow(countEnum, inComponent: 0, animated: true)
                     textField.text = f.desc
-                    rowSelected = countEnum-1
+                    rowSelected = countEnum
                 }
+                countEnum += 1
             }
+        }else{
+            self.selectRow(0, inComponent: 0, animated: true)
+            textField.text = EnumFrequenciaVermifugacao.getEnum(orderId: 0)?.desc
+            rowSelected = 0
         }
         
         let doneButton = UIBarButtonItem(title: ParametrosUtil.Labels.namePickerDone, style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
         
         textField.inputAccessoryView = ComponentsUtil.toolBarPicker(doneButton:doneButton)
-        //textField.addTarget(self, action: #selector(bloquear), for: UIControlEvents.editingDidBegin)
-        //textField.addTarget(self, action: #selector(desbloquear), for: UIControlEvents.editingDidEnd)
         
         
         return self
-    }
-    func bloquear (sender: UITextField){
-        sender.isUserInteractionEnabled = false
-    }
-    func desbloquear (sender: UITextField){
-        sender.isUserInteractionEnabled = true
     }
     
     func donePicker (sender:UIBarButtonItem)

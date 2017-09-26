@@ -22,6 +22,7 @@ class ComponentsUtil{
     }
     
     class func configurarTextField(textField:UITextField){
+
 //        let border = CALayer()
 //        let width = CGFloat(0.5)
 //        border.borderColor = UIColor.gray.cgColor
@@ -140,7 +141,18 @@ class ComponentsUtil{
         if (mapErro.type == EnumErrosSistema.ERRO_VALIDACAO) {
             ComponentsUtil.criationAlertValidation(controller: controller, message: mapErro.message.description)
             if(progress != nil){
-                progress?.close()
+                DispatchQueue.main.async {
+                    progress?.close()
+                }
+            }
+        }
+        
+        if (mapErro.type == EnumErrosSistema.ERRO_INESPERADO) {
+            ComponentsUtil.criationAlertValidation(controller: controller, message: ParametrosUtil.Message.ERROR_INESPERADO)
+            if(progress != nil){
+                DispatchQueue.main.async {
+                    progress?.close()
+                }
             }
         }
         

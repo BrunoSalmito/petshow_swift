@@ -13,24 +13,27 @@ class Tratamento:Entidade{
     var   animal:Animal?
     var   frequencia:EnumFrequenciaTratamento?
     var   nm_tratamento:NSString?
-    var   dataInicio:NSDate?
-    var   dataTermino:NSDate?
-    var   hrTratamento:NSDate?
+    var   dataInicio:Date?
+    var   dataTermino:Date?
+    var   hrTratamento:Date?
    
     
     
     
     override func setValue(_ value: Any?, forKey key: String) {
         if key=="frequencia"{
-            for f in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
-                
-                if String(describing: f.self)==value as? String{
-                    
-                    frequencia=f;
-                }
-            }
-        }else{
+            self.frequencia = EnumUtil.getInListEnum(EnumFrequenciaTratamento.self, value)
             
+        }else if key=="dataInicio"{
+            self.dataInicio = DateUtil.formatResponseJson(dateString: value )
+            
+        }else if key=="dataTermino"{
+            self.dataTermino =  DateUtil.formatResponseJson(dateString: value )
+            
+        }else if key=="hrTratamento"{
+            self.hrTratamento = DateUtil.hourDescToDate(hour:value as! String ,seconds:true )
+            
+        }else{
             super.setValue(value, forKey: key)
         }
         
@@ -39,15 +42,15 @@ class Tratamento:Entidade{
     }
     
     override func toJSON() -> Dictionary<String, AnyObject> {
-        
+        print(DateUtil.hourFormatToJson(date:self.hrTratamento)?.description)
         return[
             "id":(self.id  as AnyObject),
-            "animal":(self.animal  as AnyObject),
-            "frequencia":self.frequencia!.rawValue as AnyObject,
-            "nm_Tratamento":(self.nm_tratamento  as AnyObject),
-            "dataInicio":(self.dataInicio  as AnyObject),
-            "dataTermino":(self.dataTermino  as AnyObject),
-            "hrTratamento":(self.hrTratamento  as AnyObject),
+            "animal":(self.animal?.toJSON()  as AnyObject),
+           "frequencia":self.frequencia!.rawValue as AnyObject,
+            "nm_tratamento":(self.nm_tratamento  as AnyObject),
+            "dataInicio":DateUtil.dateFormatToJson(date:self.dataInicio) as AnyObject,
+            "dataTermino":DateUtil.dateFormatToJson(date:self.dataTermino) as AnyObject,
+            "hrTratamento":DateUtil.hourFormatToJson(date:self.hrTratamento) as AnyObject
            
             
         ]
