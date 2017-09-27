@@ -17,21 +17,24 @@ class AnimallistaViewController: UITableViewController {
     var tableViewAux:UITableView?
     var indicadorProgress:ActivityIndicadorViewPet =  ActivityIndicadorViewPet()
     var animalSelected:Animal?
+    var perdidoSelected:Perdido?
+    var adocaoSelected:Adocao?
     var sections:[String] = [String]()
+    let nameSectionPet:String = "Pets"
+    let nameSectionAdocao:String = "Adoção"
+    let nameSectionPerdido:String = "Perdidos/Achados"
     
-
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         var numberOfSectionsInt:Int = 0
         sections = [String]()
         if(animais.count > 0){
-            sections.append("Pets")
+            sections.append(nameSectionPet)
         }
         if(adocao.count > 0){
-            sections.append("Adoção")
+            sections.append(nameSectionAdocao)
         }
         if(perdidos.count > 0){
-            sections.append("Perdidos/Achados")
+            sections.append(nameSectionPerdido)
         }
         
         
@@ -41,25 +44,25 @@ class AnimallistaViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(sections[section] == "Pets"){
+        if(sections[section] == nameSectionPet){
             return animais.count
         }
-        if(sections[section] == "Adoção"){
+        if(sections[section] == nameSectionAdocao){
             return adocao.count
         }
-        if(sections[section] == "Perdidos/Achados"){
+        if(sections[section] == nameSectionPerdido){
             return perdidos.count
         }
         
-
+        
         return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if(indexPath.section == 0){
-//            cell.textLabel?.text = animais[indexPath.row].nome?.description
-//        }
+        //        if(indexPath.section == 0){
+        //            cell.textLabel?.text = animais[indexPath.row].nome?.description
+        //        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellAnimalListaController
         
@@ -70,7 +73,7 @@ class AnimallistaViewController: UITableViewController {
         
         
         // Configure Cell
-        if(sections[indexPath.section] == "Pets" ){
+        if(sections[indexPath.section] == nameSectionPet ){
             let animal = animais[indexPath.row]
             cell?.lblPrincipal.text = animal.nome?.description
             cell?.lblDetalhe.text = animal.raca?.description
@@ -80,7 +83,7 @@ class AnimallistaViewController: UITableViewController {
                 
             }
         }
-        if(sections[indexPath.section] == "Adoção"){
+        if(sections[indexPath.section] == nameSectionAdocao){
             let adocao = self.adocao[indexPath.row]
             
             if(adocao.dataAdocao != nil){
@@ -96,7 +99,7 @@ class AnimallistaViewController: UITableViewController {
                 
             }
         }
-        if(sections[indexPath.section] == "Perdidos/Achados"){
+        if(sections[indexPath.section] == nameSectionPerdido){
             let perdido = perdidos[indexPath.row]
             
             if(perdido.flAcontecimento == "A"){
@@ -117,7 +120,7 @@ class AnimallistaViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       
+        
         return self.sections[section]
     }
     
@@ -160,7 +163,7 @@ class AnimallistaViewController: UITableViewController {
         adocao = JsonUtil.listByJson(Adocao.self,json:json)
         
         DispatchQueue.main.sync {
-           callRestListaPerdidos()
+            callRestListaPerdidos()
         }
     }
     
@@ -178,5 +181,61 @@ class AnimallistaViewController: UITableViewController {
         ComponentsUtil.backErrorRest(mapErro:mapErro,controller:self,progress:self.indicadorProgress)
         
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueByGridAnimalList" {
+            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAnimalController
+            controller?.animal = animalSelected
+        }
+        
+//        if segue.identifier == "segueToAdocao" {
+//            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAdocaoController
+//            controller?.adocao = adocaoSelected
+//        }
+        
+//        if segue.identifier == "segueToPerdido" {
+//            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtPerdidoController
+//            controller?.perdido = perdidoSelected
+//        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+       setLineSelected (row:(indexPath?.row)!, section:(indexPath?.section)! )
+        
+        if(sections[(indexPath?.section)!] == nameSectionPet){
+            self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+        }
+        if(sections[(indexPath?.section)!] == nameSectionAdocao ){
+            self.performSegue(withIdentifier: "segueToAdocao", sender:self)
+        }
+        if(sections[(indexPath?.section)!] == nameSectionPerdido ){
+            self.performSegue(withIdentifier: "segueToPerdido", sender:self)
+        }
+        
+    }
+    
+    func setLineSelected (row:Int, section:Int ){
+        self.animalSelected = CastingUtil.returnNil(Animal.self)
+        self.adocaoSelected = CastingUtil.returnNil(Adocao.self)
+        self.perdidoSelected = CastingUtil.returnNil(Perdido.self)
+        
+    
+        if(sections[section] == nameSectionPet){
+            self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+             self.animalSelected = animais[row]
+        }
+        if(sections[section] == nameSectionAdocao ){
+            self.performSegue(withIdentifier: "segueToAdocao", sender:self)
+             self.adocaoSelected = adocao[row]
+        }
+        if(sections[section] == nameSectionPerdido ){
+            self.performSegue(withIdentifier: "segueToPerdido", sender:self)
+            self.perdidoSelected = perdidos[row]
+        }
+        
+    }
+    
+    
 }

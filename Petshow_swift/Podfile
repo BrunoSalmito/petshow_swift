@@ -10,4 +10,5 @@ target 'Petshow_swift' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FacebookShare'
+    pod 'GooglePlacesSearchController'
 end
