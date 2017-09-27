@@ -53,18 +53,18 @@ class EdtAnimalController:UITableViewController  {
     
     @IBAction func validationSaveAnimal(_ sender: UIBarButtonItem) {
         if(!ValidationUtil.validationTextFieldString(txt: txtAnimal)){
-        ComponentsUtil.criationAlertValidation(controller: self, message: "Informe qual o animal!")
-          return
-         }
+            ComponentsUtil.criationAlertValidation(controller: self, message: "Informe qual o animal!")
+            return
+        }
         if(!ValidationUtil.validationTextFieldString(txt: txtNome)){
             ComponentsUtil.criationAlertValidation(controller: self, message: "Informe um nome para seu pet!")
             return
         }
-       
+        
         saveAnimal()
     }
     @IBAction func returnListAnimals(_ sender: Any) {
-         returnListAnimal()
+        returnListAnimal()
         
     }
     @IBAction func backToListAnimal(_ sender: UIBarButtonItem) {
@@ -72,7 +72,7 @@ class EdtAnimalController:UITableViewController  {
     }
     
     
-   
+    
     @IBAction func openDate(_ sender: UITextField) {
         DatePickerData().prepare(controller: self, txt: sender,tpData: UIDatePickerMode.date, idDatePickerTela: 1)
         
@@ -115,7 +115,7 @@ class EdtAnimalController:UITableViewController  {
     
     func callBackSalvarTutor(json:[String: AnyObject]) -> Void{
         var tutor:Tutor = Tutor()
-
+        
         JsonUtil.setfieldsJsonReturn(entidade:tutor, json:json)
         
         self.animal = tutor.animal
@@ -223,7 +223,7 @@ class EdtAnimalController:UITableViewController  {
         animal.fotoPerfil = ImageUtil.imageToNSString64(image: imageAnimal.image!)
         animal.dataNascimento = DateUtil.dataBrasilToDate(date: txtNascimento.text!)
         animal.flSexo = ( segmentSexo.selectedSegmentIndex == 0 ?"M":"F")
-       
+        
         
     }
     

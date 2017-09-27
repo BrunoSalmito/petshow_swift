@@ -10,7 +10,7 @@ import Foundation
 
 class Adocao:Entidade{
     
-    var   dataAdocao:NSDate?
+    var   dataAdocao:Date?
     var   usuario:Usuario?
     var   descAdocao:NSString?
     // variavel lista de fotos
@@ -22,64 +22,45 @@ class Adocao:Entidade{
     var   cidade:Cidade?
     var   estado:Estado?
     var   bairro:Bairro?
-    var   telefoneCelular:NSInteger?
-    var   dddCelular:NSInteger?
-    var   telefoneResidencial:NSInteger?
-    var   dddResidencial:NSInteger?
-    var   dataCadastro:NSDate?
+    var   telefoneCelular:NSNumber?
+    var   dddCelular:NSNumber?
+    var   telefoneResidencial:NSNumber?
+    var   dddResidencial:NSNumber?
+    var   dataCadastro:Date?
     var   tipo:EnumTipoAnimal?
     var   raca:NSString?
     var   flSexo:NSString?
     var   porteAnimal:EnumPorteAnimal?
     
     override func setValue(_ value: Any?, forKey key: String) {
-        if key=="flVacinado" || key=="flVermifugado" || key=="castrado"{
+        
+        if key=="flVacinado" {
+            self.flVacinado = value as? Bool
             
-            if key=="flVacinado" {
-                self.flVacinado = value as? Bool
-            }
+        }else if key=="flVermifugado"{
+            self.flVermifugado=value as? Bool
             
-            if key=="flVermifugado"{
-                self.flVermifugado=value as? Bool
-            }
+        }else if key=="castrado"{
+            self.castrado=value as? Bool
             
-            if key=="castrado"{
-                self.castrado=value as? Bool
-            }
+        }else if key=="tipo"{
+            self.tipo = EnumUtil.getInListEnum(EnumTipoAnimal.self, value)
             
-        }else if key=="fase" || key=="porteAnimal" || key=="tipo"{
+        }else if key=="porteAnimal" {
+            self.porteAnimal = EnumUtil.getInListEnum(EnumPorteAnimal.self, value)
             
-            if key=="tipo"{
-                for f in EnumUtil.iterateEnum(EnumTipoAnimal) {
-                    
-                    if String(describing: f.self)==value as? String{
-                        
-                        tipo=f;
-                    }
-                }
-            }else if key=="porteAnimal" {
-                for f in EnumUtil.iterateEnum(EnumPorteAnimal) {
-                    
-                    if String(describing: f.self)==value as? String{
-                        
-                        porteAnimal=f;
-                    }
-                }
-                
-            }else if key=="fase" {
-                for f in EnumUtil.iterateEnum(EnumFaseVida) {
-                    
-                    if String(describing: f.self)==value as? String{
-                        
-                        fase=f;
-                    }
-                }
-                
-            }
-
+        }else if key=="fase" {
+            self.fase = EnumUtil.getInListEnum(EnumFaseVida.self, value)
+            
+        }else if key=="dataCadastro" {
+            self.dataCadastro = DateUtil.formatResponseJson(dateString: value )
+            
+        }else if key=="dataAdocao" {
+            self.dataAdocao = DateUtil.formatResponseJson(dateString: value )
+            
         }else{
-            
             super.setValue(value, forKey: key)
+            
         }
         
         
@@ -90,22 +71,22 @@ class Adocao:Entidade{
         
         return[
            "id":(self.id  as AnyObject),
-           "dataAdocao":(self.dataAdocao  as AnyObject),
-           "usuario":(self.usuario  as AnyObject),
+           "dataAdocao": DateUtil.dateFormatToJson(date:self.dataAdocao)! ,
+           "usuario":(self.usuario!.toJSON()  as AnyObject),
            "descAdocao":(self.descAdocao  as AnyObject),
            "fotos":(self.fotos  as AnyObject),
            "fase":self.fase!.rawValue as AnyObject,
            "flVacinado":(self.flVacinado  as AnyObject),
            "flVermifugado":(self.flVermifugado  as AnyObject),
            "castrado:":(self.castrado  as AnyObject),
-           "cidade:":(self.cidade  as AnyObject),
-           "estado":(self.estado  as AnyObject),
-           "bairro":(self.bairro  as AnyObject),
+           "cidade:":(self.cidade?.toJSON()  as AnyObject),
+           "estado":(self.estado?.toJSON()  as AnyObject),
+           "bairro":(self.bairro?.toJSON()  as AnyObject),
            "telefoneCelular":(self.telefoneCelular  as AnyObject),
            "dddCelular:":(self.dddCelular  as AnyObject),
            "telefoneResidencial":(self.telefoneResidencial  as AnyObject),
            "dddResidencial":(self.dddResidencial  as AnyObject),
-           "dataCadastro":(self.dataCadastro  as AnyObject),
+           "dataCadastro":DateUtil.dateFormatToJson(date:self.dataCadastro)!,
            "tipo:":self.tipo!.rawValue as AnyObject,
            "raca":(self.raca  as AnyObject),
            "flSexo":(self.flSexo  as AnyObject),

@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -138,11 +140,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="xNO-hK-Bk2"/>
                     <navigationItem key="navigationItem" title="PETS" id="u5n-kh-ND1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="10i-7v-VMA">
-                            <connections>
-                                <segue destination="Cw8-qz-TlY" kind="presentation" identifier="segueEditAnimalController" id="pId-Ja-LRw"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="10i-7v-VMA">
+                                <connections>
+                                    <segue destination="Cw8-qz-TlY" kind="presentation" identifier="segueEditAnimalController" id="pId-Ja-LRw"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="TGe-dG-op5">
+                                <connections>
+                                    <segue destination="7yv-hR-Zqg" kind="show" id="ZFd-KW-Zxn"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="Cw8-qz-TlY" kind="show" identifier="segueByGridAnimalList" id="cqg-Ww-4rS"/>
@@ -1568,6 +1577,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJA-vb-HQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3246" y="-92"/>
+        </scene>
+        <!--Animallista View Controller-->
+        <scene sceneID="kCA-ZA-rez">
+            <objects>
+                <tableViewController id="7yv-hR-Zqg" customClass="AnimallistaViewController" customModule="Petshow_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="87" sectionHeaderHeight="18" sectionFooterHeight="18" id="09u-SI-87o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAnimalListaController" rowHeight="87" id="U7M-1v-Chm" customClass="CellAnimalListaController" customModule="Petshow_swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="375" height="87"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U7M-1v-Chm" id="g7k-cN-SqE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dgu-Ex-orT">
+                                            <rect key="frame" x="14" y="16.5" width="62" height="57.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="62" id="jSB-Tk-8Hi"/>
+                                                <constraint firstAttribute="height" constant="57.5" id="lYk-UA-HFL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DD4-T2-vUG">
+                                            <rect key="frame" x="92" y="13" width="57.5" height="27"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-hr-BSw">
+                                            <rect key="frame" x="92" y="54" width="151" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-AtenÃ§Ã£o-38" highlightedImage="icons8-AtenÃ§Ã£o-38" translatesAutoresizingMaskIntoConstraints="NO" id="K0Q-2K-19u">
+                                            <rect key="frame" x="323" y="23.5" width="38" height="38"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Dgu-Ex-orT" firstAttribute="top" secondItem="g7k-cN-SqE" secondAttribute="top" constant="16.5" id="6IL-IS-13N"/>
+                                        <constraint firstItem="UbK-hr-BSw" firstAttribute="top" secondItem="DD4-T2-vUG" secondAttribute="bottom" constant="13.5" id="FFC-5V-wnD"/>
+                                        <constraint firstItem="DD4-T2-vUG" firstAttribute="top" secondItem="g7k-cN-SqE" secondAttribute="topMargin" constant="4.5" id="KAS-Pv-31Y"/>
+                                        <constraint firstItem="K0Q-2K-19u" firstAttribute="top" secondItem="g7k-cN-SqE" secondAttribute="top" constant="23.5" id="e4o-wa-ObW"/>
+                                        <constraint firstItem="UbK-hr-BSw" firstAttribute="leading" secondItem="Dgu-Ex-orT" secondAttribute="trailing" constant="16" id="h0I-cQ-JKq"/>
+                                        <constraint firstItem="DD4-T2-vUG" firstAttribute="leading" secondItem="Dgu-Ex-orT" secondAttribute="trailing" constant="16" id="kYw-sE-nRn"/>
+                                        <constraint firstAttribute="trailing" secondItem="K0Q-2K-19u" secondAttribute="trailing" constant="14" id="nFt-Nn-68V"/>
+                                        <constraint firstItem="Dgu-Ex-orT" firstAttribute="leading" secondItem="g7k-cN-SqE" secondAttribute="leading" constant="14" id="tsm-Se-PUH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageAnimal" destination="Dgu-Ex-orT" id="sSP-Fs-hAb"/>
+                                    <outlet property="imageWarning" destination="K0Q-2K-19u" id="m29-pe-My4"/>
+                                    <outlet property="lblDetalhe" destination="UbK-hr-BSw" id="lrD-sV-u6f"/>
+                                    <outlet property="lblPrincipal" destination="DD4-T2-vUG" id="7eS-kp-hnf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7yv-hR-Zqg" id="YMZ-7z-FVy"/>
+                            <outlet property="delegate" destination="7yv-hR-Zqg" id="zdv-4e-RUt"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTD-rA-WiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3981.5999999999999" y="-1471.2143928035982"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="905-u7-kmM">
