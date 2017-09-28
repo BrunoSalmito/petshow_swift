@@ -12,13 +12,13 @@ enum EnumFrequenciaVermifugacao:String{
     case MENSAL,TRIMESTRAL,SEMESTRAL,ANUAL
     
     static let count:Int = {
-        return EnumUtil.enumCount(EnumFrequenciaVermifugacao)
+        return EnumUtil.enumCount(EnumFrequenciaVermifugacao.self)
     }()
     
     
     static func getEnum(orderId:Int)-> EnumFrequenciaVermifugacao?{
         
-        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao) {
+        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao.self) {
             
             if enumAux.orderId == orderId {
                 
@@ -30,7 +30,7 @@ enum EnumFrequenciaVermifugacao:String{
     }
     func getEnum(id:Int)-> EnumFrequenciaVermifugacao? {
         
-        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao) {
+        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaVermifugacao.self) {
             
             if enumAux.id == id {
                 

@@ -23,7 +23,7 @@ class EnumUtil{
         
         var auxCount:Int = 0
         
-        for f in EnumUtil.iterateEnum(T) {
+        for _ in EnumUtil.iterateEnum(T.self) {
             
             auxCount += 1
         }
@@ -34,7 +34,7 @@ class EnumUtil{
     class func getInListEnum<T: Hashable>(_: T.Type,_ enumString:Any?) -> T?{
         if(enumString != nil){
             
-            for f in EnumUtil.iterateEnum(T) {
+            for f in EnumUtil.iterateEnum(T.self) {
                 
                 if String(describing: f.self) == enumString as! String {
                     

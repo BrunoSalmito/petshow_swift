@@ -46,7 +46,7 @@ class PickerFrequenciaTratamento: UIPickerView,UIPickerViewDataSource, UIPickerV
         
         var countEnum:Int = 0
         if(enumTp != nil ){
-            for f in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
+            for f in EnumUtil.iterateEnum(EnumFrequenciaTratamento.self) {
                 
                
                 

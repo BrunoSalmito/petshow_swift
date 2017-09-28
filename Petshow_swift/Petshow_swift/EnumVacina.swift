@@ -10,12 +10,12 @@ enum EnumVacina:String{
     case CPOLIVALENTE,CPOLIVALENTE_R1,CPOLIVALENTE_R2,CPOLIVALENTE_ANUAL,CANTIRRABICA,CANTIRRABICA_ANUAL,CGRIPE_CANINA,CGRIPE_CANINA_R1,CGRIPE_CANINA_ANUAL,CGIARDIASE,CGIARDIASE_R1,CGIARDIASE_ANUAL, CLEISHMANIOSE,CLEISHMANIOSE_R1,CLEISHMANIOSE_R2,CLEISHMANIOSE_ANUAL
     
     static let count:Int = {
-        return EnumUtil.enumCount(EnumVacina)
+        return EnumUtil.enumCount(EnumVacina.self)
     }()
     
     
     static func getEnum(orderId:Int)-> EnumVacina?{
-        for enumAux in EnumUtil.iterateEnum(EnumVacina) {
+        for enumAux in EnumUtil.iterateEnum(EnumVacina.self) {
             
             if enumAux.orderId == orderId {
                 
@@ -25,7 +25,7 @@ enum EnumVacina:String{
         return nil
     }
     static func getEnum(id:Int)-> EnumVacina?{
-        for enumAux in EnumUtil.iterateEnum(EnumVacina) {
+        for enumAux in EnumUtil.iterateEnum(EnumVacina.self) {
             
             if enumAux.id == id {
                 
@@ -35,17 +35,7 @@ enum EnumVacina:String{
         return nil
     }
     
-    static func getEnum(enumVacina:EnumVacina)-> EnumVacina?{
-        
-        for f in EnumUtil.iterateEnum(EnumVacina) {
-            
-            if String(describing: f.self)==enumVacina as? String{
-                
-                return f;
-            }
-        }
-        return nil
-    }
+    
     
     static func getEnumyTypeAnimal(orderId:Int,enumTipoAnimal:EnumTipoAnimal)-> EnumVacina?{
         var list:[EnumVacina] = getListEnumByTypeAnimal(enumTipoAnimal:enumTipoAnimal)!
@@ -57,7 +47,7 @@ enum EnumVacina:String{
     static func getListEnumByTypeAnimal(enumTipoAnimal:EnumTipoAnimal)-> [EnumVacina]?{
         var returnAux:[EnumVacina] = []
         
-        for f in EnumUtil.iterateEnum(EnumVacina) {
+        for f in EnumUtil.iterateEnum(EnumVacina.self) {
             
             if enumTipoAnimal == f.tp{
                 

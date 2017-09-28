@@ -18,7 +18,7 @@ class ImageUtil{
     }
     class func nsString64ToImage(stringImage:NSString) -> UIImage{
         
-        let image:String = (stringImage as? String)!
+        let image:String = (stringImage as String)
         return string64ToImage(stringImage:image)
         
         

@@ -42,7 +42,7 @@ class Tratamento:Entidade{
     }
     
     override func toJSON() -> Dictionary<String, AnyObject> {
-        print(DateUtil.hourFormatToJson(date:self.hrTratamento)?.description)
+       
         return[
             "id":(self.id  as AnyObject),
             "animal":(self.animal?.toJSON()  as AnyObject),

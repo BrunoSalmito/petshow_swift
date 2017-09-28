@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnimallistaViewController: UITableViewController {
+class AnimaListaViewController: UITableViewController {
     
     let cellIdentifier = "CellAnimalListaController"
     var animais = [Animal]()
@@ -188,15 +188,15 @@ class AnimallistaViewController: UITableViewController {
             controller?.animal = animalSelected
         }
         
-//        if segue.identifier == "segueToAdocao" {
-//            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAdocaoController
-//            controller?.adocao = adocaoSelected
-//        }
+        if segue.identifier == "segueToAdocao" {
+            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtAdocaoController
+            controller?.adocao = adocaoSelected
+        }
         
-//        if segue.identifier == "segueToPerdido" {
-//            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtPerdidoController
-//            controller?.perdido = perdidoSelected
-//        }
+        if segue.identifier == "segueToPerdido" {
+            let controller =  (segue.destination as? UINavigationController)?.topViewController as? EdtPerdidoController
+            controller?.perdido = perdidoSelected
+        }
         
     }
     
@@ -222,20 +222,53 @@ class AnimallistaViewController: UITableViewController {
         self.perdidoSelected = CastingUtil.returnNil(Perdido.self)
         
     
+        if(section > -1){
         if(sections[section] == nameSectionPet){
-            self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+           
              self.animalSelected = animais[row]
         }
         if(sections[section] == nameSectionAdocao ){
-            self.performSegue(withIdentifier: "segueToAdocao", sender:self)
-             self.adocaoSelected = adocao[row]
+                       self.adocaoSelected = adocao[row]
         }
         if(sections[section] == nameSectionPerdido ){
-            self.performSegue(withIdentifier: "segueToPerdido", sender:self)
+          
             self.perdidoSelected = perdidos[row]
         }
-        
+        }
     }
+    
+    func openOptionsCadAnimal(){
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let animalBTN = UIAlertAction(title: "PET", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.performSegue(withIdentifier: "segueByGridAnimalList", sender:self)
+            self.setLineSelected (row:0, section: -1)
+        }
+        let adocaoBTN = UIAlertAction(title: "Adoção", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.performSegue(withIdentifier: "segueToAdocao", sender:self)
+            self.setLineSelected (row:0, section: -1)
+        }
+        let perdidoBTN = UIAlertAction(title: "Perdido", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.performSegue(withIdentifier: "segueToPerdido", sender:self)
+            self.setLineSelected (row:0, section: -1)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+        }
+        
+        alertController.addAction(animalBTN)
+        alertController.addAction(adocaoBTN)
+        alertController.addAction(perdidoBTN)
+        alertController.addAction(cancelAction)
+        
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     
 }

@@ -114,7 +114,7 @@ class EdtAnimalController:UITableViewController  {
     }
     
     func callBackSalvarTutor(json:[String: AnyObject]) -> Void{
-        var tutor:Tutor = Tutor()
+        let tutor:Tutor = Tutor()
         
         JsonUtil.setfieldsJsonReturn(entidade:tutor, json:json)
         

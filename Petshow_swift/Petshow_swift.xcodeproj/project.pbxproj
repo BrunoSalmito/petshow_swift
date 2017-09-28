@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2F0805F81F78CE8800A767FA /* CastingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0805F71F78CE8800A767FA /* CastingUtil.swift */; };
+		2F184E181F7C8DD300E930D0 /* AnimalListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */; };
+		2F184E1A1F7C9A2C00E930D0 /* PickerSexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E191F7C9A2C00E930D0 /* PickerSexo.swift */; };
+		2F184E201F7C9AC500E930D0 /* EnumSexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E1F1F7C9AC500E930D0 /* EnumSexo.swift */; };
 		2F326B521F5F5C7000D792B6 /* EnumPorteAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B511F5F5C7000D792B6 /* EnumPorteAnimal.swift */; };
 		2F326B541F5F5C9F00D792B6 /* EnumFaseVida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B531F5F5C9F00D792B6 /* EnumFaseVida.swift */; };
 		2F326B561F5F5DA600D792B6 /* Estado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B551F5F5DA600D792B6 /* Estado.swift */; };
@@ -39,11 +42,15 @@
 		2F4B08121F6B4B4D00AEC263 /* EdtTratamentoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B08111F6B4B4D00AEC263 /* EdtTratamentoController.swift */; };
 		2F4B08141F6B947B00AEC263 /* EnumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B08131F6B947B00AEC263 /* EnumUtil.swift */; };
 		2F4B08161F6D044900AEC263 /* PickerViewVacina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B08151F6D044900AEC263 /* PickerViewVacina.swift */; };
-		2F584CDA1F7AE3E2008B68A3 /* AnimallistaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CD91F7AE3E2008B68A3 /* AnimallistaViewController.swift */; };
 		2F584CDC1F7AF7EF008B68A3 /* CellAnimalListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CDB1F7AF7EF008B68A3 /* CellAnimalListaController.swift */; };
 		2F584CE21F7B2EED008B68A3 /* EdtPerdidoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CE11F7B2EED008B68A3 /* EdtPerdidoController.swift */; };
 		2F584CE41F7B2F08008B68A3 /* EdtAdocaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CE31F7B2F08008B68A3 /* EdtAdocaoController.swift */; };
 		2F584CE61F7B3C4F008B68A3 /* TesteMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CE51F7B3C4F008B68A3 /* TesteMaps.swift */; };
+		2F584CE81F7BE782008B68A3 /* PickerPorteAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CE71F7BE782008B68A3 /* PickerPorteAnimal.swift */; };
+		2F584CEA1F7BEA9B008B68A3 /* PickerFaseVida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CE91F7BEA9B008B68A3 /* PickerFaseVida.swift */; };
+		2F584CEC1F7BEC1E008B68A3 /* PickerCor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CEB1F7BEC1E008B68A3 /* PickerCor.swift */; };
+		2F584CEE1F7C1297008B68A3 /* TextFieldSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CED1F7C1297008B68A3 /* TextFieldSearch.swift */; };
+		2F584CF01F7C37F8008B68A3 /* TextFieldDateBr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F584CEF1F7C37F8008B68A3 /* TextFieldDateBr.swift */; };
 		2F6E8CCF1F50C0DB008A9B5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E8CCE1F50C0DB008A9B5F /* Assets.xcassets */; };
 		2F6E8CD21F50C0DB008A9B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E8CD01F50C0DB008A9B5F /* LaunchScreen.storyboard */; };
 		2F6E8CE71F50C361008A9B5F /* UtilParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8CE21F50C361008A9B5F /* UtilParameters.swift */; };
@@ -77,7 +84,6 @@
 		2F6E8D221F560D43008A9B5F /* EnumTipoAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E8D211F560D43008A9B5F /* EnumTipoAnimal.swift */; };
 		2F75856A1F707E9A0047AEF8 /* Tutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7585691F707E9A0047AEF8 /* Tutor.swift */; };
 		2F75856C1F70E91C0047AEF8 /* PickerFrequenciaTratamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75856B1F70E91C0047AEF8 /* PickerFrequenciaTratamento.swift */; };
-		2F75856E1F7314AD0047AEF8 /* EnumTeste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75856D1F7314AD0047AEF8 /* EnumTeste.swift */; };
 		2F7585711F7378EA0047AEF8 /* EnumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7585701F7378E90047AEF8 /* EnumError.swift */; };
 		2F7585731F7387CB0047AEF8 /* ComponentsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7585721F7387CB0047AEF8 /* ComponentsUtil.swift */; };
 		2F7585751F744AC30047AEF8 /* PickerFrequenciaVermifugacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7585741F744AC30047AEF8 /* PickerFrequenciaVermifugacao.swift */; };
@@ -87,7 +93,6 @@
 		2F75857D1F7773090047AEF8 /* JsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75857C1F7773090047AEF8 /* JsonUtil.swift */; };
 		2F75857F1F7871E60047AEF8 /* ValidationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F75857E1F7871E60047AEF8 /* ValidationUtil.swift */; };
 		2F7DE4DD1F5DF4C9007829FD /* Adocao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7DE4DC1F5DF4C9007829FD /* Adocao.swift */; };
-		2F820EB41F59BC93004EEC63 /* AnimalListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */; };
 		2F820EB71F59BEBE004EEC63 /* CellAnimalLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */; };
 		C7D345A64FDB94AA45C87C65 /* Pods_Petshow_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB16C9AE6972C0EDEC89C3E /* Pods_Petshow_swift.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +101,9 @@
 		00A19EAED29F0317BDD950C9 /* Pods-Petshow_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petshow_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Petshow_swift/Pods-Petshow_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		1CB16C9AE6972C0EDEC89C3E /* Pods_Petshow_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Petshow_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0805F71F78CE8800A767FA /* CastingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastingUtil.swift; sourceTree = "<group>"; };
+		2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalListaController.swift; sourceTree = "<group>"; };
+		2F184E191F7C9A2C00E930D0 /* PickerSexo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSexo.swift; sourceTree = "<group>"; };
+		2F184E1F1F7C9AC500E930D0 /* EnumSexo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumSexo.swift; sourceTree = "<group>"; };
 		2F326B511F5F5C7000D792B6 /* EnumPorteAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPorteAnimal.swift; sourceTree = "<group>"; };
 		2F326B531F5F5C9F00D792B6 /* EnumFaseVida.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumFaseVida.swift; sourceTree = "<group>"; };
 		2F326B551F5F5DA600D792B6 /* Estado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Estado.swift; sourceTree = "<group>"; };
@@ -127,11 +135,15 @@
 		2F4B08111F6B4B4D00AEC263 /* EdtTratamentoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdtTratamentoController.swift; sourceTree = "<group>"; };
 		2F4B08131F6B947B00AEC263 /* EnumUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumUtil.swift; sourceTree = "<group>"; };
 		2F4B08151F6D044900AEC263 /* PickerViewVacina.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewVacina.swift; sourceTree = "<group>"; };
-		2F584CD91F7AE3E2008B68A3 /* AnimallistaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimallistaViewController.swift; sourceTree = "<group>"; };
 		2F584CDB1F7AF7EF008B68A3 /* CellAnimalListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnimalListaController.swift; sourceTree = "<group>"; };
 		2F584CE11F7B2EED008B68A3 /* EdtPerdidoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdtPerdidoController.swift; sourceTree = "<group>"; };
 		2F584CE31F7B2F08008B68A3 /* EdtAdocaoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdtAdocaoController.swift; sourceTree = "<group>"; };
 		2F584CE51F7B3C4F008B68A3 /* TesteMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TesteMaps.swift; sourceTree = "<group>"; };
+		2F584CE71F7BE782008B68A3 /* PickerPorteAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerPorteAnimal.swift; sourceTree = "<group>"; };
+		2F584CE91F7BEA9B008B68A3 /* PickerFaseVida.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerFaseVida.swift; sourceTree = "<group>"; };
+		2F584CEB1F7BEC1E008B68A3 /* PickerCor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerCor.swift; sourceTree = "<group>"; };
+		2F584CED1F7C1297008B68A3 /* TextFieldSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldSearch.swift; sourceTree = "<group>"; };
+		2F584CEF1F7C37F8008B68A3 /* TextFieldDateBr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDateBr.swift; sourceTree = "<group>"; };
 		2F6E8CC41F50C0DB008A9B5F /* Petshow_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petshow_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6E8CCE1F50C0DB008A9B5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F6E8CD11F50C0DB008A9B5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,7 +179,6 @@
 		2F6E8D211F560D43008A9B5F /* EnumTipoAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTipoAnimal.swift; sourceTree = "<group>"; };
 		2F7585691F707E9A0047AEF8 /* Tutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutor.swift; sourceTree = "<group>"; };
 		2F75856B1F70E91C0047AEF8 /* PickerFrequenciaTratamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerFrequenciaTratamento.swift; sourceTree = "<group>"; };
-		2F75856D1F7314AD0047AEF8 /* EnumTeste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTeste.swift; sourceTree = "<group>"; };
 		2F7585701F7378E90047AEF8 /* EnumError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumError.swift; sourceTree = "<group>"; };
 		2F7585721F7387CB0047AEF8 /* ComponentsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsUtil.swift; sourceTree = "<group>"; };
 		2F7585741F744AC30047AEF8 /* PickerFrequenciaVermifugacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerFrequenciaVermifugacao.swift; sourceTree = "<group>"; };
@@ -177,7 +188,6 @@
 		2F75857C1F7773090047AEF8 /* JsonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtil.swift; sourceTree = "<group>"; };
 		2F75857E1F7871E60047AEF8 /* ValidationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationUtil.swift; sourceTree = "<group>"; };
 		2F7DE4DC1F5DF4C9007829FD /* Adocao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adocao.swift; sourceTree = "<group>"; };
-		2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalListaController.swift; sourceTree = "<group>"; };
 		2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnimalLista.swift; sourceTree = "<group>"; };
 		CB1AE71A82C3BD02FFE0DFE5 /* Pods-Petshow_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Petshow_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Petshow_swift/Pods-Petshow_swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +210,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F184E1E1F7C9AB200E930D0 /* auxiliar */ = {
+			isa = PBXGroup;
+			children = (
+				2F184E1F1F7C9AC500E930D0 /* EnumSexo.swift */,
+			);
+			name = auxiliar;
+			sourceTree = "<group>";
+		};
 		2F42CAB81F69D25000163B44 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +276,12 @@
 				2F7585781F76250E0047AEF8 /* TableViewVacina.swift */,
 				2F75857A1F7736270047AEF8 /* ActivityIndicadorViewPet.swift */,
 				2F49D1381F7A027F00995B13 /* PickerImageView.swift */,
+				2F584CE71F7BE782008B68A3 /* PickerPorteAnimal.swift */,
+				2F584CE91F7BEA9B008B68A3 /* PickerFaseVida.swift */,
+				2F584CEB1F7BEC1E008B68A3 /* PickerCor.swift */,
+				2F584CED1F7C1297008B68A3 /* TextFieldSearch.swift */,
+				2F584CEF1F7C37F8008B68A3 /* TextFieldDateBr.swift */,
+				2F184E191F7C9A2C00E930D0 /* PickerSexo.swift */,
 			);
 			name = view.components;
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 		2F6E8CDF1F50C338008A9B5F /* enum */ = {
 			isa = PBXGroup;
 			children = (
+				2F184E1E1F7C9AB200E930D0 /* auxiliar */,
 				2F6E8CEC1F50C371008A9B5F /* EnumTipoUser.swift */,
 				2F6E8CED1F50C371008A9B5F /* EnumFlTpEstabelecimento.swift */,
 				2F6E8CEE1F50C371008A9B5F /* EnumErrosSistema.swift */,
@@ -294,7 +319,6 @@
 				2F326B5D1F5F705A00D792B6 /* EnumCor.swift */,
 				2F4B08031F6AF56300AEC263 /* EnumVacina.swift */,
 				2F4B080B1F6B08D500AEC263 /* EnumFrequenciaTratamento.swift */,
-				2F75856D1F7314AD0047AEF8 /* EnumTeste.swift */,
 				2F7585701F7378E90047AEF8 /* EnumError.swift */,
 			);
 			name = enum;
@@ -362,11 +386,9 @@
 			children = (
 				2F42CAB81F69D25000163B44 /* menu */,
 				2F6E8D021F50C3F2008A9B5F /* MenuController.swift */,
-				2F584CD91F7AE3E2008B68A3 /* AnimallistaViewController.swift */,
 				2F6E8D011F50C3F2008A9B5F /* CustomTabBarController.swift */,
 				2F6E8D001F50C3F2008A9B5F /* HomeController.swift */,
 				2F6E8CFE1F50C3F2008A9B5F /* ViewController.swift */,
-				2F820EB31F59BC93004EEC63 /* AnimalListaController.swift */,
 				2F4B07F71F6A4A9800AEC263 /* EdtAnimalController.swift */,
 				2F4B07F91F6AEDBF00AEC263 /* VacinaListaController.swift */,
 				2F4B07FD1F6AEED800AEC263 /* TratamentoListaController.swift */,
@@ -376,6 +398,7 @@
 				2F584CE11F7B2EED008B68A3 /* EdtPerdidoController.swift */,
 				2F584CE31F7B2F08008B68A3 /* EdtAdocaoController.swift */,
 				2F584CE51F7B3C4F008B68A3 /* TesteMaps.swift */,
+				2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -520,13 +543,14 @@
 				2F4B08141F6B947B00AEC263 /* EnumUtil.swift in Sources */,
 				2F4B080C1F6B08D500AEC263 /* EnumFrequenciaTratamento.swift in Sources */,
 				2F4B07FA1F6AEDBF00AEC263 /* VacinaListaController.swift in Sources */,
+				2F184E201F7C9AC500E930D0 /* EnumSexo.swift in Sources */,
 				2F75856A1F707E9A0047AEF8 /* Tutor.swift in Sources */,
 				2F6E8CF61F50C37B008A9B5F /* Entidade.swift in Sources */,
 				2F6E8CF11F50C371008A9B5F /* EnumErrosSistema.swift in Sources */,
+				2F584CE81F7BE782008B68A3 /* PickerPorteAnimal.swift in Sources */,
 				2F6E8CE81F50C361008A9B5F /* FacebookUtil.swift in Sources */,
 				2F42CABE1F69DCA000163B44 /* CellMenuEdAnimal.swift in Sources */,
 				2F49D1391F7A027F00995B13 /* PickerImageView.swift in Sources */,
-				2F75856E1F7314AD0047AEF8 /* EnumTeste.swift in Sources */,
 				2F326B5C1F5F64BE00D792B6 /* Perdido.swift in Sources */,
 				2F4B08161F6D044900AEC263 /* PickerViewVacina.swift in Sources */,
 				2F42CABA1F69D26700163B44 /* MenuEdtAnimalController.swift in Sources */,
@@ -540,14 +564,15 @@
 				2F326B581F5F612600D792B6 /* Cidade.swift in Sources */,
 				2F75857B1F7736270047AEF8 /* ActivityIndicadorViewPet.swift in Sources */,
 				2F6E8CEA1F50C361008A9B5F /* ParametrosUtil.swift in Sources */,
+				2F584CEE1F7C1297008B68A3 /* TextFieldSearch.swift in Sources */,
 				2F6E8CEB1F50C361008A9B5F /* ImageUtil.swift in Sources */,
 				2F6E8CFA1F50C389008A9B5F /* CallBackRest.swift in Sources */,
-				2F820EB41F59BC93004EEC63 /* AnimalListaController.swift in Sources */,
 				2F6E8D061F50C3F2008A9B5F /* CustomTabBarController.swift in Sources */,
 				2F0805F81F78CE8800A767FA /* CastingUtil.swift in Sources */,
 				2F4B080A1F6B07CC00AEC263 /* Tratamento.swift in Sources */,
-				2F584CDA1F7AE3E2008B68A3 /* AnimallistaViewController.swift in Sources */,
+				2F584CEA1F7BEA9B008B68A3 /* PickerFaseVida.swift in Sources */,
 				2F6E8D051F50C3F2008A9B5F /* HomeController.swift in Sources */,
+				2F184E181F7C8DD300E930D0 /* AnimalListaController.swift in Sources */,
 				2F6E8D041F50C3F2008A9B5F /* AppDelegate.swift in Sources */,
 				2F6E8CE71F50C361008A9B5F /* UtilParameters.swift in Sources */,
 				2F326B521F5F5C7000D792B6 /* EnumPorteAnimal.swift in Sources */,
@@ -561,9 +586,11 @@
 				2F42CA531F674D5C00163B44 /* PickerViewRaca.swift in Sources */,
 				2F4B07F81F6A4A9800AEC263 /* EdtAnimalController.swift in Sources */,
 				2F4B08041F6AF56300AEC263 /* EnumVacina.swift in Sources */,
+				2F584CF01F7C37F8008B68A3 /* TextFieldDateBr.swift in Sources */,
 				2F6E8CF51F50C37B008A9B5F /* Usuario.swift in Sources */,
 				2F6E8CF01F50C371008A9B5F /* EnumFlTpEstabelecimento.swift in Sources */,
 				2F42CA511F6734AC00163B44 /* PickerViewTipoAnimal.swift in Sources */,
+				2F584CEC1F7BEC1E008B68A3 /* PickerCor.swift in Sources */,
 				2F584CE61F7B3C4F008B68A3 /* TesteMaps.swift in Sources */,
 				2F75857F1F7871E60047AEF8 /* ValidationUtil.swift in Sources */,
 				2F75856C1F70E91C0047AEF8 /* PickerFrequenciaTratamento.swift in Sources */,
@@ -573,6 +600,7 @@
 				2F6E8CEF1F50C371008A9B5F /* EnumTipoUser.swift in Sources */,
 				2F326B561F5F5DA600D792B6 /* Estado.swift in Sources */,
 				2F4B08021F6AF45A00AEC263 /* Vacina.swift in Sources */,
+				2F184E1A1F7C9A2C00E930D0 /* PickerSexo.swift in Sources */,
 				2F4B08121F6B4B4D00AEC263 /* EdtTratamentoController.swift in Sources */,
 				2F4B08081F6B032C00AEC263 /* Vermifugo.swift in Sources */,
 				2F6E8D221F560D43008A9B5F /* EnumTipoAnimal.swift in Sources */,

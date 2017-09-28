@@ -21,7 +21,7 @@ class DateUtil{
     }
     
     class func formartarNsDataBrasil (date:NSDate) -> String{
-        var dateDescription = date.description
+        let dateDescription = date.description
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: dateDescription)!
@@ -30,7 +30,7 @@ class DateUtil{
     }
     
     class func formartarNsDataBrasilJson (date:NSDate) -> String{
-        var dateDescription = fullNSDateToDate(nsDate:date).description
+        let dateDescription = fullNSDateToDate(nsDate:date).description
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "yyyy-MM-dd"
         let date = dateFormatter.date(from: dateDescription)
@@ -87,7 +87,7 @@ class DateUtil{
     class func formartarNsHora (date:NSDate,segundos:Bool) -> String{
         
         
-        var hora = date.description
+        let hora = date.description
         
         var horaSplit = hora.components(separatedBy: ":")
         if(segundos){

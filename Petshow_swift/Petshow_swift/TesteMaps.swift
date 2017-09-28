@@ -25,11 +25,12 @@ class TesteMaps: UIViewController {
        
     }
     @IBAction func aaaa(_ sender: UITextField) {
-        let controller = GooglePlacesSearchController(apiKey: GoogleSearchPlaceAPIKey , placeType:PlaceType.address)
+        let controller = GooglePlacesSearchController(apiKey: GoogleSearchPlaceAPIKey , placeType:PlaceType.regions)
         
         controller.didSelectGooglePlace{ (place) -> Void in
             print(place.description)
             controller.isActive = false
+            
             
         }
         
@@ -42,14 +43,6 @@ class TesteMaps: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

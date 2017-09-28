@@ -11,13 +11,13 @@ enum EnumFrequenciaTratamento:String{
     case H_3_3,  H_4_4  ,H_6_6  ,H_8_8,H_12_12,DIARIA,D_3_3,D_5_5,SEMANAL,D_10_10,D_15_15,D_21_21,MENSAL,ETERNA_DIARIA,ETERNA_SEMANAL,ETERNA_QUINZENAL,ETERNA_MENSAL,ETERNA_TRIMESTRAL,ETERNA_SEMESTRAL,ETERNA_ANUAL
     
     static let count:Int = {
-           return EnumUtil.enumCount(EnumFrequenciaTratamento)
+           return EnumUtil.enumCount(EnumFrequenciaTratamento.self)
     }()
     
     
     static func getEnum(orderId:Int)-> EnumFrequenciaTratamento?{
        
-        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
+        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaTratamento.self) {
             
             if enumAux.orderId == orderId {
                 
@@ -28,7 +28,7 @@ enum EnumFrequenciaTratamento:String{
     }
     func getEnum(id:Int)-> EnumFrequenciaTratamento? {
         
-        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaTratamento) {
+        for enumAux in EnumUtil.iterateEnum(EnumFrequenciaTratamento.self) {
             
             if enumAux.id == id {
                 

@@ -11,7 +11,7 @@ import Foundation
 enum EnumTipoAnimal:String{
     case CACHORRO,GATO,PASSARO,CAVALO,COBRA,PEIXE,LAGARTO,SUINO,OUTROS
     static let count:Int = {
-        return EnumUtil.enumCount(EnumFrequenciaTratamento)
+        return EnumUtil.enumCount(EnumTipoAnimal.self)
     }()
 //    static func getEnum(numero:Int)-> EnumTipoAnimal{
 //        if(numero == 0){
@@ -46,7 +46,7 @@ enum EnumTipoAnimal:String{
 //    }
     
     static func getEnum(orderId:Int)-> EnumTipoAnimal?{
-        for enumAux in EnumUtil.iterateEnum(EnumTipoAnimal) {
+        for enumAux in EnumUtil.iterateEnum(EnumTipoAnimal.self) {
             
             if enumAux.orderId == orderId {
                 
@@ -56,16 +56,14 @@ enum EnumTipoAnimal:String{
         return nil
     }
     
-     func getEnum(id:Int)-> EnumTipoAnimal?{
-        for enumAux in EnumUtil.iterateEnum(EnumTipoAnimal) {
+     static func getEnum(id:Int)-> EnumTipoAnimal?{
+        for enumAux in EnumUtil.iterateEnum(EnumTipoAnimal.self) {
             
             if enumAux.id == id {
                 
                 return enumAux
             }
         }
-        var imageDefaultNoPhoto:String = "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAAAAABcFtGpAAAM3mlDQ1BJQ0MgUHJv"
-        imageDefaultNoPhoto.append("iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAAAAABcFtGpAAAM3mlDQ1BJQ0MgUHJv")
         return nil
     }
     
