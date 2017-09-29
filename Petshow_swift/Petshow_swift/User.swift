@@ -1,9 +1,9 @@
 //
 //  User.swift
-//  Moments
+//  Petshow_swift
 //
-//  Created by Duc Tran on 10/9/16.
-//  Copyright © 2016 Developers Academy. All rights reserved.
+//  Created by Bruno Salmito on 28/09/17.
+//  Copyright © 2017 Bruno Salmito. All rights reserved.
 //
 
 import UIKit
@@ -13,26 +13,6 @@ struct User
     var username: String?
     var profileImage: UIImage?
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

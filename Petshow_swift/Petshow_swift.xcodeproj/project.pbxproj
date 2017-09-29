@@ -11,6 +11,15 @@
 		2F184E181F7C8DD300E930D0 /* AnimalListaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */; };
 		2F184E1A1F7C9A2C00E930D0 /* PickerSexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E191F7C9A2C00E930D0 /* PickerSexo.swift */; };
 		2F184E201F7C9AC500E930D0 /* EnumSexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E1F1F7C9AC500E930D0 /* EnumSexo.swift */; };
+		2F184E271F7D5DAF00E930D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E261F7D5DAF00E930D0 /* User.swift */; };
+		2F184E291F7D5DBA00E930D0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E281F7D5DBA00E930D0 /* Post.swift */; };
+		2F184E2B1F7D5DE500E930D0 /* NewsfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E2A1F7D5DE500E930D0 /* NewsfeedTableViewController.swift */; };
+		2F184E2E1F7D5E0D00E930D0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E2C1F7D5E0D00E930D0 /* PostCell.swift */; };
+		2F184E2F1F7D5E0D00E930D0 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E2D1F7D5E0D00E930D0 /* PostHeaderCell.swift */; };
+		2F184E311F7DC52000E930D0 /* FeedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E301F7DC52000E930D0 /* FeedHeaderCell.swift */; };
+		2F184E331F7DC53400E930D0 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E321F7DC53400E930D0 /* FeedCell.swift */; };
+		2F184E351F7DCB1300E930D0 /* FeedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E341F7DCB1300E930D0 /* FeedTableController.swift */; };
+		2F184E371F7DCD6800E930D0 /* Postagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F184E361F7DCD6800E930D0 /* Postagem.swift */; };
 		2F326B521F5F5C7000D792B6 /* EnumPorteAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B511F5F5C7000D792B6 /* EnumPorteAnimal.swift */; };
 		2F326B541F5F5C9F00D792B6 /* EnumFaseVida.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B531F5F5C9F00D792B6 /* EnumFaseVida.swift */; };
 		2F326B561F5F5DA600D792B6 /* Estado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326B551F5F5DA600D792B6 /* Estado.swift */; };
@@ -104,6 +113,15 @@
 		2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalListaController.swift; sourceTree = "<group>"; };
 		2F184E191F7C9A2C00E930D0 /* PickerSexo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSexo.swift; sourceTree = "<group>"; };
 		2F184E1F1F7C9AC500E930D0 /* EnumSexo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumSexo.swift; sourceTree = "<group>"; };
+		2F184E261F7D5DAF00E930D0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2F184E281F7D5DBA00E930D0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F184E2A1F7D5DE500E930D0 /* NewsfeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewController.swift; sourceTree = "<group>"; };
+		2F184E2C1F7D5E0D00E930D0 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		2F184E2D1F7D5E0D00E930D0 /* PostHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
+		2F184E301F7DC52000E930D0 /* FeedHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderCell.swift; sourceTree = "<group>"; };
+		2F184E321F7DC53400E930D0 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		2F184E341F7DCB1300E930D0 /* FeedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableController.swift; sourceTree = "<group>"; };
+		2F184E361F7DCD6800E930D0 /* Postagem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postagem.swift; sourceTree = "<group>"; };
 		2F326B511F5F5C7000D792B6 /* EnumPorteAnimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumPorteAnimal.swift; sourceTree = "<group>"; };
 		2F326B531F5F5C9F00D792B6 /* EnumFaseVida.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumFaseVida.swift; sourceTree = "<group>"; };
 		2F326B551F5F5DA600D792B6 /* Estado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Estado.swift; sourceTree = "<group>"; };
@@ -341,6 +359,9 @@
 				2F4B08071F6B032C00AEC263 /* Vermifugo.swift */,
 				2F4B08091F6B07CC00AEC263 /* Tratamento.swift */,
 				2F7585691F707E9A0047AEF8 /* Tutor.swift */,
+				2F184E261F7D5DAF00E930D0 /* User.swift */,
+				2F184E281F7D5DBA00E930D0 /* Post.swift */,
+				2F184E361F7DCD6800E930D0 /* Postagem.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -371,12 +392,16 @@
 		2F820EB51F59BEA3004EEC63 /* view.cell */ = {
 			isa = PBXGroup;
 			children = (
+				2F184E2C1F7D5E0D00E930D0 /* PostCell.swift */,
+				2F184E2D1F7D5E0D00E930D0 /* PostHeaderCell.swift */,
 				2F820EB61F59BEBE004EEC63 /* CellAnimalLista.swift */,
 				2F42CABB1F69D3D100163B44 /* CellMenuEdtAnimal.swift */,
 				2F42CABD1F69DCA000163B44 /* CellMenuEdAnimal.swift */,
 				2F4B080D1F6B34AB00AEC263 /* CellVacinaLista.swift */,
 				2F4B080F1F6B47EC00AEC263 /* CellTratamentoLista.swift */,
 				2F584CDB1F7AF7EF008B68A3 /* CellAnimalListaController.swift */,
+				2F184E301F7DC52000E930D0 /* FeedHeaderCell.swift */,
+				2F184E321F7DC53400E930D0 /* FeedCell.swift */,
 			);
 			name = view.cell;
 			sourceTree = "<group>";
@@ -384,6 +409,7 @@
 		2F820EB81F59C6FA004EEC63 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F184E2A1F7D5DE500E930D0 /* NewsfeedTableViewController.swift */,
 				2F42CAB81F69D25000163B44 /* menu */,
 				2F6E8D021F50C3F2008A9B5F /* MenuController.swift */,
 				2F6E8D011F50C3F2008A9B5F /* CustomTabBarController.swift */,
@@ -399,6 +425,7 @@
 				2F584CE31F7B2F08008B68A3 /* EdtAdocaoController.swift */,
 				2F584CE51F7B3C4F008B68A3 /* TesteMaps.swift */,
 				2F184E171F7C8DD300E930D0 /* AnimalListaController.swift */,
+				2F184E341F7DCB1300E930D0 /* FeedTableController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -550,9 +577,11 @@
 				2F584CE81F7BE782008B68A3 /* PickerPorteAnimal.swift in Sources */,
 				2F6E8CE81F50C361008A9B5F /* FacebookUtil.swift in Sources */,
 				2F42CABE1F69DCA000163B44 /* CellMenuEdAnimal.swift in Sources */,
+				2F184E351F7DCB1300E930D0 /* FeedTableController.swift in Sources */,
 				2F49D1391F7A027F00995B13 /* PickerImageView.swift in Sources */,
 				2F326B5C1F5F64BE00D792B6 /* Perdido.swift in Sources */,
 				2F4B08161F6D044900AEC263 /* PickerViewVacina.swift in Sources */,
+				2F184E2E1F7D5E0D00E930D0 /* PostCell.swift in Sources */,
 				2F42CABA1F69D26700163B44 /* MenuEdtAnimalController.swift in Sources */,
 				2F6E8D071F50C3F2008A9B5F /* MenuController.swift in Sources */,
 				2F6E8CFB1F50C389008A9B5F /* CallRest.swift in Sources */,
@@ -566,10 +595,12 @@
 				2F6E8CEA1F50C361008A9B5F /* ParametrosUtil.swift in Sources */,
 				2F584CEE1F7C1297008B68A3 /* TextFieldSearch.swift in Sources */,
 				2F6E8CEB1F50C361008A9B5F /* ImageUtil.swift in Sources */,
+				2F184E2B1F7D5DE500E930D0 /* NewsfeedTableViewController.swift in Sources */,
 				2F6E8CFA1F50C389008A9B5F /* CallBackRest.swift in Sources */,
 				2F6E8D061F50C3F2008A9B5F /* CustomTabBarController.swift in Sources */,
 				2F0805F81F78CE8800A767FA /* CastingUtil.swift in Sources */,
 				2F4B080A1F6B07CC00AEC263 /* Tratamento.swift in Sources */,
+				2F184E331F7DC53400E930D0 /* FeedCell.swift in Sources */,
 				2F584CEA1F7BEA9B008B68A3 /* PickerFaseVida.swift in Sources */,
 				2F6E8D051F50C3F2008A9B5F /* HomeController.swift in Sources */,
 				2F184E181F7C8DD300E930D0 /* AnimalListaController.swift in Sources */,
@@ -577,7 +608,9 @@
 				2F6E8CE71F50C361008A9B5F /* UtilParameters.swift in Sources */,
 				2F326B521F5F5C7000D792B6 /* EnumPorteAnimal.swift in Sources */,
 				2F6E8D201F560C9B008A9B5F /* EnumFrequenciaVermifugacao.swift in Sources */,
+				2F184E271F7D5DAF00E930D0 /* User.swift in Sources */,
 				2F42CABC1F69D3D100163B44 /* CellMenuEdtAnimal.swift in Sources */,
+				2F184E2F1F7D5E0D00E930D0 /* PostHeaderCell.swift in Sources */,
 				2F7585731F7387CB0047AEF8 /* ComponentsUtil.swift in Sources */,
 				2F6E8D1E1F560A15008A9B5F /* Animal.swift in Sources */,
 				2F326B5A1F5F616C00D792B6 /* Bairro.swift in Sources */,
@@ -594,6 +627,7 @@
 				2F584CE61F7B3C4F008B68A3 /* TesteMaps.swift in Sources */,
 				2F75857F1F7871E60047AEF8 /* ValidationUtil.swift in Sources */,
 				2F75856C1F70E91C0047AEF8 /* PickerFrequenciaTratamento.swift in Sources */,
+				2F184E291F7D5DBA00E930D0 /* Post.swift in Sources */,
 				2F4B08001F6AF38000AEC263 /* EdtVacinaController.swift in Sources */,
 				2F7585771F744C140047AEF8 /* EdtVermifugoController.swift in Sources */,
 				2F7DE4DD1F5DF4C9007829FD /* Adocao.swift in Sources */,
@@ -603,8 +637,10 @@
 				2F184E1A1F7C9A2C00E930D0 /* PickerSexo.swift in Sources */,
 				2F4B08121F6B4B4D00AEC263 /* EdtTratamentoController.swift in Sources */,
 				2F4B08081F6B032C00AEC263 /* Vermifugo.swift in Sources */,
+				2F184E311F7DC52000E930D0 /* FeedHeaderCell.swift in Sources */,
 				2F6E8D221F560D43008A9B5F /* EnumTipoAnimal.swift in Sources */,
 				2F6E8CE91F50C361008A9B5F /* UIColorUtil.swift in Sources */,
+				2F184E371F7DCD6800E930D0 /* Postagem.swift in Sources */,
 				2F326B601F5F714500D792B6 /* Racas.swift in Sources */,
 				2F4B08101F6B47EC00AEC263 /* CellTratamentoLista.swift in Sources */,
 				2F4B080E1F6B34AB00AEC263 /* CellVacinaLista.swift in Sources */,

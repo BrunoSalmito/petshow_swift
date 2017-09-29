@@ -1,10 +1,11 @@
 //
-//  Media.swift
-//  Moments
+//  Post.swift
+//  Petshow_swift
 //
-//  Created by Duc Tran on 11/5/16.
-//  Copyright © 2016 Developers Academy. All rights reserved.
+//  Created by Bruno Salmito on 28/09/17.
+//  Copyright © 2017 Bruno Salmito. All rights reserved.
 //
+
 
 import UIKit
 
