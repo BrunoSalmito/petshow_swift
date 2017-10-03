@@ -2394,24 +2394,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu comentário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="miP-KZ-Au3">
-                                <rect key="frame" x="0.0" y="627" width="317" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awv-hP-r22">
-                                <rect key="frame" x="333" y="627" width="42" height="30"/>
-                                <state key="normal" title="Enviar">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="salvarComment:" destination="xaG-rZ-u5f" eventType="touchUpInside" id="aj0-IP-v1I"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qEg-Ge-6I4" customClass="TableViewComment" customModule="Petshow_swift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="555"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAv-Ab-iPa">
+                                <rect key="frame" x="0.0" y="620" width="375" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu comentário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="miP-KZ-Au3">
+                                        <rect key="frame" x="3" y="8" width="309" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awv-hP-r22">
+                                        <rect key="frame" x="317" y="8" width="50" height="30"/>
+                                        <color key="backgroundColor" red="0.26418747609263099" green="0.74472967666283574" blue="0.87283867385786795" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title=" Enviar ">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="salvarComment:" destination="xaG-rZ-u5f" eventType="touchUpInside" id="aj0-IP-v1I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84490312720000005" green="0.87169051620000004" blue="0.86294596010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Awv-hP-r22" firstAttribute="leading" secondItem="miP-KZ-Au3" secondAttribute="trailing" constant="5" id="Cws-Qn-YBo"/>
+                                    <constraint firstItem="miP-KZ-Au3" firstAttribute="leading" secondItem="BAv-Ab-iPa" secondAttribute="leading" constant="3" id="DGW-r8-Ftt"/>
+                                    <constraint firstItem="miP-KZ-Au3" firstAttribute="top" secondItem="BAv-Ab-iPa" secondAttribute="top" constant="8" id="NKY-7y-sN4"/>
+                                    <constraint firstItem="Awv-hP-r22" firstAttribute="top" secondItem="BAv-Ab-iPa" secondAttribute="top" constant="8" id="TcN-u5-Gae"/>
+                                    <constraint firstItem="Awv-hP-r22" firstAttribute="leading" secondItem="miP-KZ-Au3" secondAttribute="trailing" constant="5" id="hd7-JT-kbN"/>
+                                    <constraint firstAttribute="height" constant="47" id="i32-LC-7HX"/>
+                                    <constraint firstAttribute="bottom" secondItem="miP-KZ-Au3" secondAttribute="bottom" constant="9" id="xFd-Za-cYx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Awv-hP-r22" secondAttribute="trailing" constant="8" id="yWz-dq-wPN"/>
+                                    <constraint firstAttribute="bottom" secondItem="Awv-hP-r22" secondAttribute="bottom" constant="9" id="ztS-CT-ggx"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qEg-Ge-6I4" customClass="TableViewComment" customModule="Petshow_swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellComment" rowHeight="87" id="h8h-hG-rYz" customClass="CellComment" customModule="Petshow_swift" customModuleProvider="target">
@@ -2466,12 +2483,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Awv-hP-r22" firstAttribute="leading" secondItem="miP-KZ-Au3" secondAttribute="trailing" constant="16" id="M5N-mA-WzG"/>
-                            <constraint firstAttribute="trailing" secondItem="Awv-hP-r22" secondAttribute="trailing" id="OBW-s9-BJi"/>
-                            <constraint firstItem="4rc-Ur-t7v" firstAttribute="top" secondItem="Awv-hP-r22" secondAttribute="bottom" constant="10" id="UQ5-X4-nnK"/>
-                            <constraint firstItem="Awv-hP-r22" firstAttribute="leading" secondItem="miP-KZ-Au3" secondAttribute="trailing" constant="16" id="WVn-Xe-0ry"/>
-                            <constraint firstItem="4rc-Ur-t7v" firstAttribute="top" secondItem="miP-KZ-Au3" secondAttribute="bottom" constant="10" id="sSa-gP-vTq"/>
-                            <constraint firstItem="miP-KZ-Au3" firstAttribute="leading" secondItem="9ZO-cR-349" secondAttribute="leading" id="vpc-RT-k3A"/>
+                            <constraint firstItem="qEg-Ge-6I4" firstAttribute="leading" secondItem="9ZO-cR-349" secondAttribute="leading" id="9cy-bF-3ya"/>
+                            <constraint firstItem="BAv-Ab-iPa" firstAttribute="top" secondItem="qEg-Ge-6I4" secondAttribute="bottom" id="9sR-ZJ-3ng"/>
+                            <constraint firstItem="BAv-Ab-iPa" firstAttribute="leading" secondItem="9ZO-cR-349" secondAttribute="leading" id="FPx-uC-HHA"/>
+                            <constraint firstItem="qEg-Ge-6I4" firstAttribute="top" secondItem="cXV-Ay-tQh" secondAttribute="bottom" id="IDv-JR-MBL"/>
+                            <constraint firstAttribute="trailing" secondItem="qEg-Ge-6I4" secondAttribute="trailing" id="P3W-ME-jY1"/>
+                            <constraint firstAttribute="trailing" secondItem="BAv-Ab-iPa" secondAttribute="trailing" id="ezY-lr-eA4"/>
+                            <constraint firstItem="4rc-Ur-t7v" firstAttribute="top" secondItem="BAv-Ab-iPa" secondAttribute="bottom" id="rsf-xK-lyL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Comentários" id="Tvl-J3-b8g"/>
