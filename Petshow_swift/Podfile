@@ -12,5 +12,5 @@ target 'Petshow_swift' do
     pod 'FacebookShare'
     pod 'GooglePlacesSearchController'
     pod 'VMaskTextField'
-    
+    pod 'GooglePlacePicker'
 end
