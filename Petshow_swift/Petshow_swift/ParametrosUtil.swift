@@ -30,10 +30,11 @@ class ParametrosUtil {
         static let titleAlertConfirmation = "Validação"
     }
     class Message{
-        static let ERROR_INESPERADO = "Ocorreu um erro inesperado no PETMOOBY!Favor sair e entrar novamente!"
+        static let ERROR_INESPERADO = "Ocorreu um erro inesperado no PETMOOBY! Favor sair e entrar novamente!"
     }
     class key{
         static let GOOGLE_SEARCH_API_KEY = "AIzaSyB59U4AnK1Sj06yOWH8pc4brsTTQyCO3Uk"
+        static let GOOGLE_MAPS_API_KEY = "AIzaSyAVBNNaXKBDM59o1SYN5mcYs7wTbOIf08c"
     }
     
 

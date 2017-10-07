@@ -31,13 +31,13 @@ class TextFieldSearch:UITextField,UITextFieldDelegate {
     func openGoogleAutoComplete(sender: TextFieldSearch) {
         
         
-        let controller = GooglePlacesSearchController(apiKey: ParametrosUtil.key.GOOGLE_SEARCH_API_KEY , placeType:PlaceType.regions)
+        let controller = GooglePlacesSearchController(apiKey: ParametrosUtil.key.GOOGLE_SEARCH_API_KEY , placeType:PlaceType.address)
         
         controller.didSelectGooglePlace{ (place) -> Void in
             //print(place.description)
             controller.isActive = false
             self.placeSelected = place
-            sender.text = place.administrativeArea
+            sender.text = place.formattedAddress
         }
         
         self.controller?.present(controller, animated: true, completion: nil)

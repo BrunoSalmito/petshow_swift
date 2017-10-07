@@ -13,7 +13,7 @@ class CustomTabBarController: UITabBarController {
        //self.tabBar.isHidden = true
         
         self.tabBar.backgroundColor = UIColor.black// UIColorUtil.init(hex: ParametrosUtil.Color.verdeFundoPet)
-        self.tabBar.barTintColor =  UIColorUtil.init(hex: ParametrosUtil.Color.verdeFundoPet)
+        self.tabBar.barTintColor =  UIColorUtil.init(hex: "A2C6AF")
         self.tabBar.tintColor = UIColor.black
         var itensTab:[UITabBarItem]  = self.tabBar.items!
         

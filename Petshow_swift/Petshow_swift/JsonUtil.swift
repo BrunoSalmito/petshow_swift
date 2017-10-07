@@ -39,4 +39,16 @@ class JsonUtil{
         
         return entidade
     }
+    
+    static func listByJsonResponseMap<T:NSObject>(_: T.Type,json:[[String:AnyObject]]) -> [T]{
+        var entidades = [T]()
+        
+        for item in json{
+            let newItem = T()
+            newItem.setValuesForKeys(item)
+            entidades.append(newItem)
+            
+        }
+        return entidades
+    }
 }

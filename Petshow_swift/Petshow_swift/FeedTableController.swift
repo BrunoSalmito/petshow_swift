@@ -13,21 +13,31 @@ class FeedTableController: UITableViewController {
     var postagens: [Postagem]?
     
     
+    @IBOutlet var buttonPostagem: BarButtonPickerImage!
+    
     struct dataTableFeed {
         static let feedCell = "feedCell"
         static let feedHeaderCell = "feedHeaderCell"
-        static let feedHeaderHeight: CGFloat = 57.0
-        static let feedCellDefaultHeight: CGFloat = 540.0
+        static let feedHeaderHeight: CGFloat = 72
+        static let feedCellDefaultHeight: CGFloat = 554
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.fetchFeed()
-        
+        buttonPostagem.prepare(controller: self)
         tableView.estimatedRowHeight = dataTableFeed.feedCellDefaultHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.clear
+        
+        
+         navigationController?.navigationBar.barTintColor = UIColorUtil.init(hex: "A2C6AF")
+        
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleDict as! [String : Any]
+        //navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     func fetchFeed()
@@ -71,7 +81,7 @@ extension FeedTableController
         
         cell.postagem = self.postagens?[section]
         cell.backgroundColor = UIColor.white
-        
+       
         return cell
     }
     

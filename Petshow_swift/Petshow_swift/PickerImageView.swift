@@ -49,12 +49,7 @@ class PickerImageView:UIImageView,UIImagePickerControllerDelegate,UINavigationCo
         
         self.image = resizeImage(image: (info[UIImagePickerControllerOriginalImage] as? UIImage)!, newWidth: 150)
        
-        
-       
-        
-        
-        
-        
+         
     }
     
     

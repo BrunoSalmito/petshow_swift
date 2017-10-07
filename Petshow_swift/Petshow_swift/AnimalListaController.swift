@@ -15,7 +15,6 @@ class AnimalListaController: UITableViewController {
     var animais = [Animal]()
     var adocao = [Adocao]()
     var perdidos = [Perdido]()
-    var tableViewAux:UITableView?
     var indicadorProgress:ActivityIndicadorViewPet =  ActivityIndicadorViewPet()
     var animalSelected:Animal?
     var perdidoSelected:Perdido?
@@ -68,10 +67,10 @@ class AnimalListaController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CellAnimalListaController
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        cell?.imageAnimal.layer.cornerRadius=28.0
+        cell?.imageAnimal.layer.cornerRadius = (cell?.imageAnimal.bounds.width)! / 2.0
         cell?.imageAnimal.clipsToBounds = true
         
-        
+       
         
         // Configure Cell
         if(sections[indexPath.section] == nameSectionPet ){

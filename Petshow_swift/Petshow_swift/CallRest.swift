@@ -37,7 +37,7 @@ class CallRest{
                     
                     
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                   // print(json)
                     
                     
                     let erroMap = CallRest.isMapError(json: json)
@@ -79,7 +79,7 @@ class CallRest{
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                   // print(json)
                     
                     
                     let erroMap = CallRest.isMapError(json: json)
@@ -118,7 +118,7 @@ class CallRest{
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                   // print(json)
                     
                     let erroMap = CallRest.isMapError(json: json)
                     
@@ -167,7 +167,7 @@ class CallRest{
                     
                     
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                   // print(json)
                     
                     
                     let erroMap = CallRest.isMapError(json: json)
@@ -210,7 +210,7 @@ class CallRest{
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                   // print(json)
                     
                     
                     let erroMap = CallRest.isMapError(json: json)
